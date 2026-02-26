@@ -388,21 +388,6 @@
         };
 
         const admin = {
-            // --- ميزة نسخ رابط المشاركة ---
-            copyShareLink: (id) => {
-                let baseUrl = window.location.origin;
-                let pathName = window.location.pathname;
-                let studentPath = pathName.replace(/admin\.html$/i, '').replace(/admin\/$/i, '');
-                
-                const link = `${baseUrl}${studentPath}?quiz=${id}`;
-                
-                navigator.clipboard.writeText(link).then(() => {
-                    app.notify("تم نسخ الرابط المباشر للمنصة بنجاح! 🔗", "success");
-                }).catch(err => {
-                    app.notify("حدث خطأ أثناء نسخ الرابط", "error");
-                });
-            },
-
             switchTab: (t) => {
                 document.querySelectorAll('.adm-tab').forEach(e=>e.classList.remove('active'));
                 document.getElementById('tab-'+t).classList.add('active');
@@ -748,7 +733,6 @@
                                 });
                                 const qDetailsId = `q-det-${q.id}`; const isQOpen = openIds.has(qDetailsId);
                                 fullHtml += ` <div class="bg-white p-3 rounded-lg border shadow-sm relative"> <div class="absolute top-3 left-3 flex gap-2"> <input type="checkbox" class="q-select w-5 h-5 accent-red-500 cursor-pointer" value="${q.id}" onchange="admin.toggleBulkSelect()"> </div> <div class="flex flex-col md:flex-row justify-between items-center gap-2 pl-8"> <div class="flex items-center gap-2"> <span class="text-[10px] font-bold ${locked?'bg-red-100 text-red-600':'bg-green-100 text-green-600'} px-2 py-1 rounded-lg">${locked?'مغلق':'مفتوح'}</span> <h5 class="font-bold text-slate-800">${q.name}</h5> <span class="text-[10px] text-slate-400">(${q.minor})</span> <button onclick="admin.openRenameModal(${q.id})" class="text-slate-400 hover:text-blue-600 transition-colors" title="تعديل الاسم"><i class="fas fa-pen text-xs"></i></button> </div> <div class="flex gap-2"> <button onclick="admin.toggleQs('${qDetailsId}')" class="text-xs bg-blue-50 text-blue-600 px-3 py-2 rounded-lg font-bold border border-blue-100 hover:bg-blue-100">الأسئلة (${q.questions?.length||0})</button> 
-                                <button onclick="admin.copyShareLink(${q.id})" class="text-xs bg-purple-50 text-purple-600 px-3 py-2 rounded-lg font-bold border border-purple-100 hover:bg-purple-100" title="نسخ رابط مباشر للطلاب"><i class="fas fa-link"></i> رابط</button>
                                 <button onclick="admin.openCloneModal(${q.id})" class="text-xs bg-orange-50 text-orange-600 px-3 py-2 rounded-lg font-bold border border-orange-100 hover:bg-orange-100" title="نسخ الاختبار لقسم آخر"><i class="fas fa-copy"></i> نسخ</button> <button onclick="admin.toggleLock('quiz', ${q.id})" class="text-xs bg-slate-100 text-slate-600 px-3 py-2 rounded-lg font-bold hover:bg-slate-200">${locked?'🔓 فتح':'🔒 قفل'}</button> <button onclick="admin.delItem('quiz', ${q.id})" class="text-xs bg-red-50 text-red-600 px-3 py-2 rounded-lg font-bold hover:bg-red-100">حذف</button> </div> </div> <div id="${qDetailsId}" class="${isQOpen ? '' : 'hidden'} mt-4 pt-4 border-t space-y-2 bg-slate-50 p-2 rounded-lg" data-is-open="${isQOpen}"> ${questionsHtml} </div> </div>`;
                             });
                             fullHtml += `</div></details>`;
