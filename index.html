@@ -3,7 +3,7 @@
  <head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>لوحة القيادة | الإدارة الشاملة</title> 
+  <title>لوحة القيادة | أستاذ أحمد عيد</title> 
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script> 
   <script>
         tailwind.config = {
@@ -47,7 +47,7 @@
   </div> 
   <nav class="bg-slate-900 text-white p-4 shadow-xl sticky top-0 z-50 border-b-4 border-emerald-500"> 
    <div class="container mx-auto flex justify-between items-center"> 
-    <h1 class="text-xl font-black flex items-center gap-2"> <i class="fas fa-sliders-h text-emerald-400"></i> لوحة الإدارة </h1> <button onclick="app.logout()" class="hidden id-logout bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-xl font-bold text-xs transition-all">خروج</button> 
+    <h1 class="text-xl font-black flex items-center gap-2"> <i class="fas fa-sliders-h text-emerald-400"></i> لوحة إدارة أستاذ أحمد عيد </h1> <button onclick="app.logout()" class="hidden id-logout bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-xl font-bold text-xs transition-all">خروج</button> 
    </div> 
   </nav> 
   <div class="container mx-auto px-4 py-8"> 
@@ -69,7 +69,14 @@
      <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm"> <span class="block text-3xl font-black text-yellow-400" id="visitor-counter">0</span> <span class="text-xs font-bold">إجمالي الزيارات</span> 
      </div> 
     </div> 
-    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> <button onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> <button onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> <button onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> <button onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء محتوى</button> <button onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> <button onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
+    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> 
+        <button onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> 
+        <button onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> 
+        <button onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> 
+        <button onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> 
+        <button onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button>
+        <button onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> 
+        <button onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
     </div> 
     <div id="tab-settings" class="adm-tab active block bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100"> 
      <h3 class="font-black text-xl mb-6 text-emerald-700 border-r-4 border-emerald-500 pr-3">إعدادات النصوص والروابط</h3> 
@@ -88,7 +95,7 @@
       </div> 
       <div class="bg-slate-50 p-5 rounded-3xl space-y-3"> 
        <h4 class="font-bold text-slate-800 mb-2">الأزرار والتواصل</h4> 
-       <div class="grid grid-cols-2 gap-2"> 
+       <div class="grid grid-cols-2 gap-2 mb-2"> 
         <div> <label class="text-[10px] font-bold text-slate-400">واتساب (رقم):</label> 
          <input id="set-whatsapp" class="w-full border p-2 rounded-xl font-bold text-left" dir="ltr" placeholder="201xxxx"> 
         </div> 
@@ -96,10 +103,13 @@
          <input id="set-telegram" class="w-full border p-2 rounded-xl font-bold text-left text-blue-500" dir="ltr" placeholder="username"> 
         </div> 
        </div> 
+       <div class="mb-2"> <label class="text-[10px] font-bold text-slate-400">فيسبوك (رابط الصفحة):</label> 
+        <input id="set-facebook" class="w-full border p-2 rounded-xl font-bold text-left text-blue-700" dir="ltr" placeholder="https://facebook.com/..."> 
+       </div>
        <div> <label class="text-[10px] font-bold text-slate-400">نص الفوتر:</label> 
         <input id="set-footer-text" class="w-full border p-2 rounded-xl font-bold"> 
        </div> 
-       <div class="grid grid-cols-2 gap-2"> 
+       <div class="grid grid-cols-2 gap-2 mt-2"> 
         <div> <label class="text-[10px] font-bold text-slate-400">زر الزوار:</label> 
          <input id="set-btn-visitor" class="w-full border p-2 rounded-xl font-bold"> 
         </div> 
@@ -225,6 +235,53 @@
       <input id="file-url" placeholder="الرابط" class="w-full border p-3 rounded-xl font-bold mb-2 text-left" dir="ltr"> <button onclick="admin.addFile()" class="w-full bg-red-600 text-white py-3 rounded-xl font-black">حفظ الملف</button> 
      </div> 
     </div> 
+    
+    <div id="tab-lessons" class="adm-tab space-y-6">
+        <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-indigo-600">
+            <h4 class="font-black text-2xl mb-4 text-indigo-800 flex items-center gap-2"><i class="fas fa-book-reader"></i> إضافة درس / شرح جديد</h4>
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">صلاحية الوصول</label>
+                        <select id="lesson-mode" class="w-full border p-3 rounded-xl font-bold bg-slate-50 focus:border-indigo-500">
+                            <option value="visitor">🔓 مفتوح للجميع (مفيد لأدسنس)</option>
+                            <option value="subscriber">🔒 للمشتركين فقط</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">القسم الرئيسي</label>
+                        <select id="lesson-major" class="w-full border p-3 rounded-xl font-bold bg-white focus:border-indigo-500 text-indigo-700"></select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">القسم الفرعي</label>
+                        <select id="lesson-minor" class="w-full border p-3 rounded-xl font-bold bg-white focus:border-indigo-500"></select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">عنوان الدرس</label>
+                    <input id="lesson-title" placeholder="مثال: شرح نواسخ الجملة الاسمية بالتفصيل" class="w-full border-2 border-indigo-100 p-4 rounded-xl font-bold text-lg focus:border-indigo-500">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 mb-1">محتوى الشرح (المقال النصي)</label>
+                    <textarea id="lesson-content" placeholder="اكتب الشرح هنا بدقة. هذا المحتوى سيفيد الطلاب جداً وسيجعل جوجل أدسنس يوافق على الموقع بسرعة لأنه يعتبر محتوى نصي غني..." class="w-full border-2 border-slate-200 p-4 rounded-xl font-bold h-64 text-base leading-loose focus:border-indigo-500 bg-slate-50"></textarea>
+                </div>
+                
+                <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-200">
+                    <label class="block text-sm font-black text-indigo-800 mb-2 flex items-center gap-2"><i class="fas fa-search"></i> ربط الدرس باختبار (مع خاصية البحث)</label>
+                    <p class="text-xs font-bold text-slate-500 mb-3">ابحث عن الاختبار بالاسم أو التخصص للوصول السريع، ثم حدده من القائمة.</p>
+                    <input type="text" id="lesson-quiz-search" placeholder="🔍 ابحث عن اسم الاختبار هنا..." class="w-full border-2 border-white p-3 rounded-xl mb-3 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all" onkeyup="admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz')">
+                    <select id="lesson-linked-quiz" class="w-full border-2 border-indigo-300 p-3 rounded-xl font-bold bg-white text-indigo-900 shadow-sm" size="4"></select>
+                </div>
+                
+                <button onclick="admin.addLesson()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black shadow-lg hover:bg-indigo-700 transition-all text-lg flex justify-center items-center gap-2">
+                    <i class="fas fa-save"></i> حفظ ونشر الدرس
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <div id="tab-simulation" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm border border-yellow-400"> 
      <h3 class="font-black text-xl mb-6 text-slate-800">⚙️ إنشاء اختبار محاكي جديد</h3> 
      <p class="text-sm font-bold text-blue-600 mb-4 bg-blue-50 p-2 rounded">ملاحظة: جميع المحاكيات تظهر في قسم خاص للمستخدم باسم "محاكيات التنظيم والإدارة".</p> 
@@ -314,6 +371,33 @@
     </div> 
    </div> 
   </div> 
+  
+  <div id="edit-lesson-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
+   <div class="bg-white p-8 rounded-[2rem] w-full max-w-2xl space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto"> 
+    <h3 class="font-black text-xl text-center text-indigo-800">تعديل الدرس / الشرح</h3> 
+    <input type="hidden" id="edit-lesson-id"> 
+    <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">عنوان الدرس</label>
+        <input id="el-title" type="text" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold focus:border-indigo-500 text-lg"> 
+    </div>
+    <div>
+        <label class="block text-xs font-bold text-slate-500 mb-1">محتوى الشرح</label>
+        <textarea id="el-content" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold h-64 focus:border-indigo-500 text-sm leading-loose bg-slate-50"></textarea>
+    </div>
+    
+    <div class="bg-indigo-50 p-4 rounded-xl">
+        <label class="block text-xs font-bold text-indigo-800 mb-2">الاختبار المرتبط (بحث وتعديل)</label>
+        <input type="text" id="el-quiz-search" placeholder="🔍 ابحث عن الاختبار الجديد..." class="w-full border-2 border-white p-2 rounded-xl mb-2 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all">
+        <select id="el-quiz" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold text-indigo-900" size="4"></select>
+    </div>
+    
+    <div class="flex gap-2 pt-2"> 
+        <button onclick="admin.saveLessonEdit()" class="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-black shadow hover:bg-indigo-700">حفظ التعديلات</button> 
+        <button onclick="document.getElementById('edit-lesson-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
+    </div> 
+   </div> 
+  </div>
+  
   <script>
         const firebaseConfig = {
         apiKey: "AIzaSyBMQ0_voMQw-_DKdpknhaecl81sU9OTR5Q",
@@ -327,7 +411,7 @@
 
         firebase.initializeApp(firebaseConfig);
         const dbRef = firebase.database().ref('edu_platform_data');
-        let db = { quizzes: [], files: [], simulations: [], settings: {}, users: [], majors: [], majorConfigs: {} };
+        let db = { quizzes: [], files: [], simulations: [], settings: {}, users: [], majors: [], majorConfigs: {}, lessons: [], lastUpdated: 0 };
 
         const standardMinors = ['تخصص', 'تربوي', 'جدارات', 'IQ', 'عربي للجميع', 'انجليزي للجميع', 'حاسب آلي', 'معلومات عامة'];
 
@@ -367,6 +451,8 @@
                             if(!db.quizzes) db.quizzes = [];
                             if(!db.files) db.files = [];
                             if(!db.majorConfigs) db.majorConfigs = {};
+                            if(!db.lessons) db.lessons = [];
+                            if(!db.lastUpdated) db.lastUpdated = Date.now();
                             
                             if(!db.majors || !Array.isArray(db.majors)) {
                                 db.majors = ['لغة عربية', 'رياضيات', 'علوم', 'دراسات', 'لغة إنجليزية'];
@@ -384,6 +470,7 @@
                         document.getElementById('adm-major').addEventListener('change', admin.updateMinorDropdown);
                         document.getElementById('file-major').addEventListener('change', admin.updateMinorDropdown);
                         document.getElementById('clone-target-major').addEventListener('change', admin.updateMinorDropdown);
+                        document.getElementById('lesson-major').addEventListener('change', admin.updateMinorDropdown);
                     }
                 });
             }
@@ -398,21 +485,22 @@
             },
             loadSettings: () => {
                 const s = db.settings || {};
-                const ids = ['set-site-name', 'set-hero-title', 'set-hero-desc', 'set-whatsapp', 'set-telegram', 'set-footer-text', 'set-tutorial', 'set-ext-link-url', 'set-ext-link-text', 'set-app-link', 'set-app-text', 'set-btn-visitor', 'set-btn-sub'];
+                const ids = ['set-site-name', 'set-hero-title', 'set-hero-desc', 'set-whatsapp', 'set-telegram', 'set-facebook', 'set-footer-text', 'set-tutorial', 'set-ext-link-url', 'set-ext-link-text', 'set-app-link', 'set-app-text', 'set-btn-visitor', 'set-btn-sub'];
                 ids.forEach(id => { 
                     const k = id.replace('set-','').replace(/-./g, x=>x[1].toUpperCase());
                     if(id === 'set-tutorial' && s.tutorialText) document.getElementById(id).value = s.tutorialText;
                     else if(document.getElementById(id)) document.getElementById(id).value = s[k] || ""; 
                 });
             },
+            // التعديل الذكي لحفظ الإعدادات دون استهلاك الباقة
             saveSettings: () => {
                 const s = {};
-                ['siteName','heroTitle','heroDesc','whatsapp','telegram','footerText','tutorialText','extLinkUrl','extLinkText','appLink','appText','btnVisitor','btnSub'].forEach(k => {
+                ['siteName','heroTitle','heroDesc','whatsapp','telegram','facebook','footerText','tutorialText','extLinkUrl','extLinkText','appLink','appText','btnVisitor','btnSub'].forEach(k => {
                     let id = 'set-' + k.replace(/[A-Z]/g, x => '-' + x.toLowerCase());
                     if(k === 'tutorialText') id = 'set-tutorial';
                     s[k] = document.getElementById(id).value;
                 });
-                db.settings = s; admin.save(); app.notify("تم الحفظ بنجاح");
+                db.settings = s; admin.save(false); app.notify("تم الحفظ بنجاح");
             },
             
             populateExistingBranchesCheckbox: () => {
@@ -497,24 +585,52 @@
                     </div>
                 `}).join('');
             },
+            
+            filterLessonQuizzes: (inputId, selectId, currentSelectedId = null) => {
+                const term = document.getElementById(inputId).value.toLowerCase();
+                const select = document.getElementById(selectId);
+                let html = `<option value="">-- بدون اختبار مرتبط --</option>`;
+                
+                (db.quizzes || []).forEach(q => {
+                    const qName = q.name ? q.name.toLowerCase() : '';
+                    const qMajor = q.major ? q.major.toLowerCase() : '';
+                    if (qName.includes(term) || qMajor.includes(term)) {
+                        const isSelected = q.id == currentSelectedId ? 'selected' : '';
+                        html += `<option value="${q.id}" ${isSelected}>[${q.major}] ${q.name}</option>`;
+                    }
+                });
+                
+                const currentVal = select.value;
+                select.innerHTML = html;
+                
+                if(select.querySelector(`option[value="${currentVal}"]`)) {
+                    select.value = currentVal;
+                }
+            },
+
             updateDropdowns: () => {
                 const majors = db.majors || [];
                 const opts = majors.map(m => `<option value="${m}">${m}</option>`).join('');
                 const optsWithComp = `<option value="GeneralFiles">مكتبة الملفات (عام)</option>` + opts;
-                const optsWithUniv = `<option value="Universal">-- عام / قياسي --</option>` + opts; 
                 
                 if(document.getElementById('file-major')) document.getElementById('file-major').innerHTML = optsWithComp;
                 if(document.getElementById('clone-target-major')) document.getElementById('clone-target-major').innerHTML = opts;
                 
                 if(document.getElementById('adm-major')) document.getElementById('adm-major').innerHTML = `<option value="Universal">عام / قياسي (يظهر للكل)</option>` + opts;
+                if(document.getElementById('lesson-major')) document.getElementById('lesson-major').innerHTML = `<option value="Universal">عام / قياسي (يظهر للكل)</option>` + opts;
                 
                 const simMajorSelect = document.getElementById('new-sim-major');
                 if(simMajorSelect) simMajorSelect.innerHTML = opts; 
 
                 const targetQuizSelect = document.getElementById('adm-target-quiz');
                 if(targetQuizSelect) targetQuizSelect.innerHTML = (db.quizzes||[]).map(q=>`<option value="${q.id}">[${q.major}] ${q.name}</option>`).join('');
+                
+                const searchInput = document.getElementById('lesson-quiz-search');
+                if(searchInput) searchInput.value = '';
+                admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz');
 
                 admin.updateMinorDropdown({target: document.getElementById('adm-major')});
+                admin.updateMinorDropdown({target: document.getElementById('lesson-major')});
             },
             updateMinorDropdown: (e) => {
                 if(!e || !e.target) return;
@@ -522,6 +638,7 @@
                 let targetId = 'adm-minor';
                 if(e.target.id === 'file-major') targetId = 'file-minor';
                 if(e.target.id === 'clone-target-major') targetId = 'clone-target-minor';
+                if(e.target.id === 'lesson-major') targetId = 'lesson-minor';
                 
                 const minorSelect = document.getElementById(targetId);
                 if(!minorSelect) return;
@@ -567,6 +684,7 @@
                 app.notify("تم نسخ الاختبار بنجاح في القسم الجديد فقط ✅");
             },
 
+            // إضافة المشتركين دون تحديث الإصدار (بدون استهلاك باقة)
             addUser: () => {
                 const u = document.getElementById('new-user-name').value.trim();
                 const p = document.getElementById('new-user-pass').value.trim();
@@ -586,7 +704,7 @@
                     const newKey = Date.now();
                     db.users[newKey] = { id: newKey, username: u, password: p, expiryDate: expiry, isActive: true, createdAt: now, sessionToken: '' };
                 }
-                admin.save(); app.notify("تم إنشاء حساب المشترك بنجاح");
+                admin.save(false); app.notify("تم إنشاء حساب المشترك بنجاح");
                 document.getElementById('new-user-name').value = ''; document.getElementById('new-user-pass').value = '';
             },
             renderUsers: () => {
@@ -618,20 +736,20 @@
             toggleUserStatus: (id) => {
                 if(Array.isArray(db.users)) { const u = db.users.find(x => x.id === id); if(u) u.isActive = !u.isActive; } 
                 else { Object.values(db.users).forEach(u => { if(u.id === id) u.isActive = !u.isActive; }); }
-                admin.save();
+                admin.save(false);
             },
             deleteUser: (id) => {
                 if(confirm("هل أنت متأكد من حذف هذا المشترك؟")) {
                       if(Array.isArray(db.users)) db.users = db.users.filter(x => x.id !== id);
                       else { for(let key in db.users) { if(db.users[key].id === id) { delete db.users[key]; break; } } }
-                    admin.save();
+                    admin.save(false);
                 }
             },
             resetSession: (id) => {
                 let found = false;
                 if(Array.isArray(db.users)) { const u = db.users.find(x => x.id === id); if(u) { u.sessionToken = ''; found=true; } } 
                 else { Object.values(db.users).forEach(u => { if(u.id === id) { u.sessionToken = ''; found=true; } }); }
-                if(found) { admin.save(); app.notify("تم تسجيل خروج المستخدم من الأجهزة"); }
+                if(found) { admin.save(false); app.notify("تم تسجيل خروج المستخدم من الأجهزة"); }
             },
             addQuiz: () => {
                 const n = document.getElementById('new-quiz-name').value;
@@ -664,6 +782,62 @@
                 if(!db.files) db.files = [];
                 db.files.push({ id: Date.now(), name: document.getElementById('file-name').value, url: document.getElementById('file-url').value, mode: document.getElementById('file-mode').value, major: document.getElementById('file-major').value, minor: document.getElementById('file-minor').value });
                 admin.save(); app.notify("تم إضافة الملف");
+            },
+            addLesson: () => {
+                const title = document.getElementById('lesson-title').value.trim();
+                const content = document.getElementById('lesson-content').value.trim();
+                
+                if(!title || !content) return app.notify("يرجى كتابة عنوان ومحتوى الدرس", "error");
+                
+                if(!db.lessons) db.lessons = [];
+                db.lessons.push({
+                    id: Date.now(),
+                    title: title,
+                    content: content,
+                    mode: document.getElementById('lesson-mode').value,
+                    major: document.getElementById('lesson-major').value,
+                    minor: document.getElementById('lesson-minor').value,
+                    linkedQuizId: document.getElementById('lesson-linked-quiz').value || null
+                });
+                
+                admin.save();
+                app.notify("تم حفظ الشرح بنجاح ✅");
+                document.getElementById('lesson-title').value = '';
+                document.getElementById('lesson-content').value = '';
+                document.getElementById('lesson-quiz-search').value = '';
+                admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz');
+            },
+            editLesson: (id) => {
+                const l = db.lessons.find(x => x.id == id);
+                if(!l) return;
+                
+                document.getElementById('edit-lesson-id').value = id;
+                document.getElementById('el-title').value = l.title;
+                document.getElementById('el-content').value = l.content;
+                
+                document.getElementById('el-quiz-search').value = '';
+                document.getElementById('el-quiz-search').onkeyup = () => admin.filterLessonQuizzes('el-quiz-search', 'el-quiz', l.linkedQuizId);
+                admin.filterLessonQuizzes('el-quiz-search', 'el-quiz', l.linkedQuizId);
+                
+                document.getElementById('edit-lesson-modal').classList.remove('hidden');
+            },
+            saveLessonEdit: () => {
+                const id = document.getElementById('edit-lesson-id').value;
+                const title = document.getElementById('el-title').value.trim();
+                const content = document.getElementById('el-content').value.trim();
+                const linkedQuiz = document.getElementById('el-quiz').value;
+                
+                if(!title || !content) return app.notify("العنوان والمحتوى مطلوبان", "error");
+                
+                const l = db.lessons.find(x => x.id == id);
+                if(l) {
+                    l.title = title;
+                    l.content = content;
+                    l.linkedQuizId = linkedQuiz || null;
+                    admin.save();
+                    document.getElementById('edit-lesson-modal').classList.add('hidden');
+                    app.notify("تم تعديل الدرس بنجاح ✅");
+                }
             },
             createSimulation: () => {
                 const name = document.getElementById('new-sim-name').value;
@@ -741,6 +915,16 @@
                         }
                     });
                 }
+                
+                if(db.lessons && db.lessons.length) {
+                    const lessonId = 'group-lessons';
+                    fullHtml += ` <h4 class="font-black text-xl text-slate-800 mb-4 mt-6 border-b pb-2 flex items-center gap-2"><i class="fas fa-book-reader text-indigo-600"></i> الشروحات والدروس</h4> <details id="${lessonId}" ${openIds.has(lessonId) ? 'open' : ''}> <summary> <span class="text-slate-800 flex items-center gap-2"> <i class="fas fa-layer-group text-indigo-500"></i> أرشيف الدروس </span> <div class="flex items-center gap-3"> <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">${db.lessons.length}</span> <i class="fas fa-chevron-down arrow-icon text-slate-400"></i> </div> </summary> <div class="details-content space-y-2">`;
+                    db.lessons.forEach(l => {
+                        const locked = l.mode === 'subscriber';
+                        fullHtml += ` <div class="bg-white p-4 rounded-xl border-r-4 border-indigo-400 flex justify-between items-center shadow-sm"> <div> <span class="text-[10px] ${locked?'text-red-500':'text-green-500'} font-bold">[${locked?'مغلق':'مفتوح'}]</span> <span class="font-bold text-sm">${l.title}</span> <span class="text-xs text-slate-400">(${l.major} - ${l.minor})</span> </div> <div class="flex gap-2"> <button onclick="admin.editLesson(${l.id})" class="text-xs bg-indigo-50 text-indigo-600 px-2 py-1 rounded border border-indigo-100 hover:bg-indigo-100"><i class="fas fa-edit"></i> تعديل</button> <button onclick="admin.toggleLock('lesson', ${l.id})" class="text-xs bg-slate-100 px-2 py-1 rounded hover:bg-slate-200">${locked?'🔓':'🔒'}</button> <button onclick="admin.delItem('lesson', ${l.id})" class="text-xs bg-red-50 text-red-500 px-2 py-1 rounded hover:bg-red-100">حذف</button> </div> </div>`;
+                    });
+                    fullHtml += `</div></details>`;
+                }
 
                 if(db.files && db.files.length) {
                     const fileId = 'group-files';
@@ -760,7 +944,7 @@
                 else { el.removeAttribute('open'); }
             },
             toggleLock: (type, id) => {
-                let list = type==='quiz'?db.quizzes : type==='file'?db.files : db.simulations;
+                let list = type==='quiz'?db.quizzes : type==='file'?db.files : type==='lesson'?db.lessons : db.simulations;
                 let item = list.find(x=>x.id===id);
                 item.mode = item.mode==='visitor'?'subscriber':'visitor';
                 admin.save();
@@ -769,10 +953,17 @@
             saveQuizName: () => { const qid = document.getElementById('edit-name-qid').value; const newName = document.getElementById('new-quiz-name-input').value; if(!newName) return app.notify("الاسم لا يمكن أن يكون فارغاً", "error"); const q = db.quizzes.find(x=>x.id==qid); q.name = newName; admin.save(); document.getElementById('edit-quiz-name-modal').classList.add('hidden'); app.notify("تم تحديث اسم الاختبار"); },
             editQ: (qid, idx) => { const q = db.quizzes.find(x=>x.id==qid).questions[idx]; document.getElementById('edit-qid').value = qid; document.getElementById('edit-idx').value = idx; document.getElementById('eq-text').value = q.text; [0,1,2,3].forEach(i => document.getElementById('eq-o'+i).value = q.opts[i]); document.getElementById('eq-ans').value = q.correctAnswer; document.getElementById('edit-q-modal').classList.remove('hidden'); },
             saveQuestionEdit: () => { const qid = document.getElementById('edit-qid').value; const idx = document.getElementById('edit-idx').value; const q = db.quizzes.find(x=>x.id==qid); q.questions[idx] = { text: document.getElementById('eq-text').value, opts: [0,1,2,3].map(i=>document.getElementById('eq-o'+i).value), correctAnswer: parseInt(document.getElementById('eq-ans').value) }; admin.save(); document.getElementById('edit-q-modal').classList.add('hidden'); app.notify("تم التعديل"); },
-            delItem: (type, id) => { if(!confirm("تأكيد الحذف؟")) return; if(type==='quiz') db.quizzes = db.quizzes.filter(x=>x.id!=id); else if(type==='file') db.files = db.files.filter(x=>x.id!=id); else db.simulations = db.simulations.filter(x=>x.id!=id); admin.save(); },
+            delItem: (type, id) => { if(!confirm("تأكيد الحذف؟")) return; if(type==='quiz') db.quizzes = db.quizzes.filter(x=>x.id!=id); else if(type==='file') db.files = db.files.filter(x=>x.id!=id); else if(type==='lesson') db.lessons = db.lessons.filter(x=>x.id!=id); else db.simulations = db.simulations.filter(x=>x.id!=id); admin.save(); },
             delQ: (qid, idx) => { if(!confirm("حذف السؤال نهائياً؟")) return; const q = db.quizzes.find(x=>x.id==qid); q.questions.splice(idx, 1); admin.save(); },
-            nuke: () => { if(confirm("تحذير: هذا سيحذف كل شيء!")) { db={quizzes:[],files:[],simulations:[],settings:db.settings,users:[], majors:db.majors, majorConfigs:{}}; admin.save(); } },
-            save: () => dbRef.set(db)
+            nuke: () => { if(confirm("تحذير: هذا سيحذف كل شيء!")) { db={quizzes:[],files:[],simulations:[],settings:db.settings,users:[], majors:db.majors, majorConfigs:{}, lessons:[], lastUpdated:Date.now()}; admin.save(); } },
+            
+            // الدالة المعدلة للتحكم في تحديث الإصدار
+            save: (isContentChange = true) => {
+                if (isContentChange) {
+                    db.lastUpdated = Date.now();
+                }
+                dbRef.set(db);
+            }
         };
         app.init();
     </script> 
