@@ -69,14 +69,7 @@
      <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm"> <span class="block text-3xl font-black text-yellow-400" id="visitor-counter">0</span> <span class="text-xs font-bold">إجمالي الزيارات</span> 
      </div> 
     </div> 
-    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> 
-        <button onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> 
-        <button onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> 
-        <button onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> 
-        <button onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> 
-        <button onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button>
-        <button onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> 
-        <button onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
+    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> <button onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> <button onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> <button onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> <button onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> <button onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button> <button onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> <button onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
     </div> 
     <div id="tab-settings" class="adm-tab active block bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100"> 
      <h3 class="font-black text-xl mb-6 text-emerald-700 border-r-4 border-emerald-500 pr-3">إعدادات النصوص والروابط</h3> 
@@ -105,7 +98,7 @@
        </div> 
        <div class="mb-2"> <label class="text-[10px] font-bold text-slate-400">فيسبوك (رابط الصفحة):</label> 
         <input id="set-facebook" class="w-full border p-2 rounded-xl font-bold text-left text-blue-700" dir="ltr" placeholder="https://facebook.com/..."> 
-       </div>
+       </div> 
        <div> <label class="text-[10px] font-bold text-slate-400">نص الفوتر:</label> 
         <input id="set-footer-text" class="w-full border p-2 rounded-xl font-bold"> 
        </div> 
@@ -235,53 +228,30 @@
       <input id="file-url" placeholder="الرابط" class="w-full border p-3 rounded-xl font-bold mb-2 text-left" dir="ltr"> <button onclick="admin.addFile()" class="w-full bg-red-600 text-white py-3 rounded-xl font-black">حفظ الملف</button> 
      </div> 
     </div> 
-    
-    <div id="tab-lessons" class="adm-tab space-y-6">
-        <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-indigo-600">
-            <h4 class="font-black text-2xl mb-4 text-indigo-800 flex items-center gap-2"><i class="fas fa-book-reader"></i> إضافة درس / شرح جديد</h4>
-            <div class="space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 mb-1">صلاحية الوصول</label>
-                        <select id="lesson-mode" class="w-full border p-3 rounded-xl font-bold bg-slate-50 focus:border-indigo-500">
-                            <option value="visitor">🔓 مفتوح للجميع (مفيد لأدسنس)</option>
-                            <option value="subscriber">🔒 للمشتركين فقط</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 mb-1">القسم الرئيسي</label>
-                        <select id="lesson-major" class="w-full border p-3 rounded-xl font-bold bg-white focus:border-indigo-500 text-indigo-700"></select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 mb-1">القسم الفرعي</label>
-                        <select id="lesson-minor" class="w-full border p-3 rounded-xl font-bold bg-white focus:border-indigo-500"></select>
-                    </div>
-                </div>
-                
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 mb-1">عنوان الدرس</label>
-                    <input id="lesson-title" placeholder="مثال: شرح نواسخ الجملة الاسمية بالتفصيل" class="w-full border-2 border-indigo-100 p-4 rounded-xl font-bold text-lg focus:border-indigo-500">
-                </div>
-                
-                <div>
-                    <label class="block text-xs font-bold text-slate-500 mb-1">محتوى الشرح (المقال النصي)</label>
-                    <textarea id="lesson-content" placeholder="اكتب الشرح هنا بدقة. هذا المحتوى سيفيد الطلاب جداً وسيجعل جوجل أدسنس يوافق على الموقع بسرعة لأنه يعتبر محتوى نصي غني..." class="w-full border-2 border-slate-200 p-4 rounded-xl font-bold h-64 text-base leading-loose focus:border-indigo-500 bg-slate-50"></textarea>
-                </div>
-                
-                <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-200">
-                    <label class="block text-sm font-black text-indigo-800 mb-2 flex items-center gap-2"><i class="fas fa-search"></i> ربط الدرس باختبار (مع خاصية البحث)</label>
-                    <p class="text-xs font-bold text-slate-500 mb-3">ابحث عن الاختبار بالاسم أو التخصص للوصول السريع، ثم حدده من القائمة.</p>
-                    <input type="text" id="lesson-quiz-search" placeholder="🔍 ابحث عن اسم الاختبار هنا..." class="w-full border-2 border-white p-3 rounded-xl mb-3 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all" onkeyup="admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz')">
-                    <select id="lesson-linked-quiz" class="w-full border-2 border-indigo-300 p-3 rounded-xl font-bold bg-white text-indigo-900 shadow-sm" size="4"></select>
-                </div>
-                
-                <button onclick="admin.addLesson()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black shadow-lg hover:bg-indigo-700 transition-all text-lg flex justify-center items-center gap-2">
-                    <i class="fas fa-save"></i> حفظ ونشر الدرس
-                </button>
-            </div>
-        </div>
-    </div>
-    
+    <div id="tab-lessons" class="adm-tab space-y-6"> 
+     <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-indigo-600"> 
+      <h4 class="font-black text-2xl mb-4 text-indigo-800 flex items-center gap-2"><i class="fas fa-book-reader"></i> إضافة درس / شرح جديد</h4> 
+      <div class="space-y-4"> 
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-4"> 
+        <div> <label class="block text-xs font-bold text-slate-500 mb-1">صلاحية الوصول</label> <select id="lesson-mode" class="w-full border p-3 rounded-xl font-bold bg-slate-50 focus:border-indigo-500"> <option value="visitor">🔓 مفتوح للجميع (مفيد لأدسنس)</option> <option value="subscriber">🔒 للمشتركين فقط</option> </select> 
+        </div> 
+        <div> <label class="block text-xs font-bold text-slate-500 mb-1">القسم الرئيسي</label> <select id="lesson-major" class="w-full border p-3 rounded-xl font-bold bg-white focus:border-indigo-500 text-indigo-700"></select> 
+        </div> 
+        <div> <label class="block text-xs font-bold text-slate-500 mb-1">القسم الفرعي</label> <select id="lesson-minor" class="w-full border p-3 rounded-xl font-bold bg-white focus:border-indigo-500"></select> 
+        </div> 
+       </div> 
+       <div> <label class="block text-xs font-bold text-slate-500 mb-1">عنوان الدرس</label> 
+        <input id="lesson-title" placeholder="مثال: شرح نواسخ الجملة الاسمية بالتفصيل" class="w-full border-2 border-indigo-100 p-4 rounded-xl font-bold text-lg focus:border-indigo-500"> 
+       </div> 
+       <div> <label class="block text-xs font-bold text-slate-500 mb-1">محتوى الشرح (المقال النصي)</label> <textarea id="lesson-content" placeholder="اكتب الشرح هنا بدقة. هذا المحتوى سيفيد الطلاب جداً وسيجعل جوجل أدسنس يوافق على الموقع بسرعة لأنه يعتبر محتوى نصي غني..." class="w-full border-2 border-slate-200 p-4 rounded-xl font-bold h-64 text-base leading-loose focus:border-indigo-500 bg-slate-50"></textarea> 
+       </div> 
+       <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-200"> <label class="block text-sm font-black text-indigo-800 mb-2 flex items-center gap-2"><i class="fas fa-search"></i> ربط الدرس باختبار (مع خاصية البحث)</label> 
+        <p class="text-xs font-bold text-slate-500 mb-3">ابحث عن الاختبار بالاسم أو التخصص للوصول السريع، ثم حدده من القائمة.</p> 
+        <input type="text" id="lesson-quiz-search" placeholder="🔍 ابحث عن اسم الاختبار هنا..." class="w-full border-2 border-white p-3 rounded-xl mb-3 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all" onkeyup="admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz')"> <select id="lesson-linked-quiz" class="w-full border-2 border-indigo-300 p-3 rounded-xl font-bold bg-white text-indigo-900 shadow-sm" size="4"></select> 
+       </div> <button onclick="admin.addLesson()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black shadow-lg hover:bg-indigo-700 transition-all text-lg flex justify-center items-center gap-2"> <i class="fas fa-save"></i> حفظ ونشر الدرس </button> 
+      </div> 
+     </div> 
+    </div> 
     <div id="tab-simulation" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm border border-yellow-400"> 
      <h3 class="font-black text-xl mb-6 text-slate-800">⚙️ إنشاء اختبار محاكي جديد</h3> 
      <p class="text-sm font-bold text-blue-600 mb-4 bg-blue-50 p-2 rounded">ملاحظة: جميع المحاكيات تظهر في قسم خاص للمستخدم باسم "محاكيات التنظيم والإدارة".</p> 
@@ -371,44 +341,33 @@
     </div> 
    </div> 
   </div> 
-  
   <div id="edit-lesson-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-2xl space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto"> 
     <h3 class="font-black text-xl text-center text-indigo-800">تعديل الدرس / الشرح</h3> 
     <input type="hidden" id="edit-lesson-id"> 
-    <div>
-        <label class="block text-xs font-bold text-slate-500 mb-1">عنوان الدرس</label>
-        <input id="el-title" type="text" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold focus:border-indigo-500 text-lg"> 
-    </div>
-    <div>
-        <label class="block text-xs font-bold text-slate-500 mb-1">محتوى الشرح</label>
-        <textarea id="el-content" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold h-64 focus:border-indigo-500 text-sm leading-loose bg-slate-50"></textarea>
-    </div>
-    
-    <div class="bg-indigo-50 p-4 rounded-xl">
-        <label class="block text-xs font-bold text-indigo-800 mb-2">الاختبار المرتبط (بحث وتعديل)</label>
-        <input type="text" id="el-quiz-search" placeholder="🔍 ابحث عن الاختبار الجديد..." class="w-full border-2 border-white p-2 rounded-xl mb-2 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all">
-        <select id="el-quiz" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold text-indigo-900" size="4"></select>
-    </div>
-    
-    <div class="flex gap-2 pt-2"> 
-        <button onclick="admin.saveLessonEdit()" class="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-black shadow hover:bg-indigo-700">حفظ التعديلات</button> 
-        <button onclick="document.getElementById('edit-lesson-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
+    <div> <label class="block text-xs font-bold text-slate-500 mb-1">عنوان الدرس</label> 
+     <input id="el-title" type="text" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold focus:border-indigo-500 text-lg"> 
+    </div> 
+    <div> <label class="block text-xs font-bold text-slate-500 mb-1">محتوى الشرح</label> <textarea id="el-content" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold h-64 focus:border-indigo-500 text-sm leading-loose bg-slate-50"></textarea> 
+    </div> 
+    <div class="bg-indigo-50 p-4 rounded-xl"> <label class="block text-xs font-bold text-indigo-800 mb-2">الاختبار المرتبط (بحث وتعديل)</label> 
+     <input type="text" id="el-quiz-search" placeholder="🔍 ابحث عن الاختبار الجديد..." class="w-full border-2 border-white p-2 rounded-xl mb-2 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all"> <select id="el-quiz" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold text-indigo-900" size="4"></select> 
+    </div> 
+    <div class="flex gap-2 pt-2"> <button onclick="admin.saveLessonEdit()" class="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-black shadow hover:bg-indigo-700">حفظ التعديلات</button> <button onclick="document.getElementById('edit-lesson-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
     </div> 
    </div> 
-  </div>
-  
+  </div> 
   <script>
         // كود الاتصال الجديد الذي أرسلته (egtaze)
         const firebaseConfig = {
-            apiKey: "AIzaSyB2o9xLjKXeb5DOrRQtanr2nlT7gI_6K48",
-            authDomain: "egtaze.firebaseapp.com",
-            databaseURL: "https://egtaze-default-rtdb.firebaseio.com",
-            projectId: "egtaze",
-            storageBucket: "egtaze.firebasestorage.app",
-            messagingSenderId: "564015135816",
-            appId: "1:564015135816:web:e47bfd0f6ac8e98979ec7d"
-        };
+             apiKey: "AIzaSyC-_oKTH3UDI_PuW2CPORcbyzSyk4VmFWY",
+             authDomain: "egtazz.firebaseapp.com",
+             databaseURL: "https://egtazz-default-rtdb.firebaseio.com",
+             projectId: "egtazz",
+             storageBucket: "egtazz.firebasestorage.app",
+             messagingSenderId: "895235004124",
+             appId: "1:895235004124:web:83e143bc15fa70500d4619"
+         };
 
         firebase.initializeApp(firebaseConfig);
         const dbRef = firebase.database().ref('edu_platform_data');
