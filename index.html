@@ -47,7 +47,7 @@
   </div> 
   <nav class="bg-slate-900 text-white p-4 shadow-xl sticky top-0 z-50 border-b-4 border-emerald-500"> 
    <div class="container mx-auto flex justify-between items-center"> 
-    <h1 class="text-xl font-black flex items-center gap-2"> <i class="fas fa-sliders-h text-emerald-400"></i> لوحة إدارة أستاذ أحمد عيد </h1> <button onclick="app.logout()" class="hidden id-logout bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-xl font-bold text-xs transition-all">خروج</button> 
+    <h1 class="text-xl font-black flex items-center gap-2"> <i class="fas fa-sliders-h text-emerald-400"></i> لوحة إدارة أستاذ أحمد عيد </h1> <button type="button" onclick="app.logout()" class="hidden id-logout bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-xl font-bold text-xs transition-all">خروج</button> 
    </div> 
   </nav> 
   <div class="container mx-auto px-4 py-8"> 
@@ -57,7 +57,7 @@
     <h2 class="text-3xl font-black mb-8">تسجيل دخول المدير</h2> 
     <div class="space-y-4"> 
      <input type="email" id="adm-email" placeholder="البريد الإلكتروني" class="w-full border-2 p-4 rounded-2xl font-bold"> 
-     <input type="password" id="adm-pass" placeholder="كلمة المرور" class="w-full border-2 p-4 rounded-2xl font-bold"> <button onclick="app.login()" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-black shadow-lg hover:bg-black transition-all">دخول آمن</button> 
+     <input type="password" id="adm-pass" placeholder="كلمة المرور" class="w-full border-2 p-4 rounded-2xl font-bold"> <button type="button" onclick="app.login(event)" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-black shadow-lg hover:bg-black transition-all">دخول آمن</button> 
     </div> 
    </div> 
    <div id="panel-view" class="hidden space-y-8"> 
@@ -69,7 +69,7 @@
      <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm"> <span class="block text-3xl font-black text-yellow-400" id="visitor-counter">0</span> <span class="text-xs font-bold">إجمالي الزيارات</span> 
      </div> 
     </div> 
-    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> <button onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> <button onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> <button onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> <button onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> <button onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button> <button onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> <button onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
+    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> <button type="button" onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> <button type="button" onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> <button type="button" onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> <button type="button" onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> <button type="button" onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button> <button type="button" onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> <button type="button" onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
     </div> 
     <div id="tab-settings" class="adm-tab active block bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100"> 
      <h3 class="font-black text-xl mb-6 text-emerald-700 border-r-4 border-emerald-500 pr-3">إعدادات النصوص والروابط</h3> 
@@ -125,7 +125,7 @@
       </div> 
      </div> 
      <div class="mt-6"> <label class="text-xs font-bold text-slate-400">تعليمات الصفحة الرئيسية:</label> <textarea id="set-tutorial" class="w-full border p-3 rounded-2xl h-24 font-bold bg-slate-50 text-slate-700"></textarea> 
-     </div> <button onclick="admin.saveSettings()" class="w-full bg-emerald-600 text-white py-4 rounded-2xl mt-6 font-black shadow-lg hover:bg-emerald-700 transition-all">حفظ الإعدادات ✅</button> 
+     </div> <button type="button" onclick="admin.saveSettings(event)" class="w-full bg-emerald-600 text-white py-4 rounded-2xl mt-6 font-black shadow-lg hover:bg-emerald-700 transition-all">حفظ الإعدادات ✅</button> 
     </div> 
     <div id="tab-majors" class="adm-tab space-y-6"> 
      <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-orange-500"> 
@@ -148,7 +148,7 @@
           <input id="new-major-branches" placeholder="أدخل الأسماء مفصولة بفاصلة. مثال: المراجعة النهائية, الفصل الأول" class="w-full border p-3 rounded-xl font-bold text-sm"> 
          </div> 
         </div> 
-       </div> <button onclick="admin.addMajor()" class="w-full bg-orange-600 text-white py-3 rounded-xl font-black shadow-lg hover:bg-orange-700 transition-all text-lg">حفظ القسم وإنشاء المحتوى +</button> 
+       </div> <button type="button" onclick="admin.addMajor(event)" class="w-full bg-orange-600 text-white py-3 rounded-xl font-black shadow-lg hover:bg-orange-700 transition-all text-lg">حفظ القسم وإنشاء المحتوى +</button> 
       </div> 
      </div> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm"> 
@@ -166,7 +166,7 @@
       </div> 
       <div class="flex items-center gap-2 mb-4"> <label class="font-bold text-sm">مدة الاشتراك:</label> 
        <input id="new-user-duration" type="number" value="1" class="border p-2 w-20 rounded-xl text-center font-bold"> <select id="new-user-unit" class="border p-2 rounded-xl font-bold bg-slate-50"> <option value="hours">ساعات</option> <option value="days" selected>أيام</option> </select> 
-      </div> <button onclick="admin.addUser()" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-black hover:bg-emerald-700 shadow-lg">إنشاء الحساب وتفعيل المدة</button> 
+      </div> <button type="button" onclick="admin.addUser(event)" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-black hover:bg-emerald-700 shadow-lg">إنشاء الحساب وتفعيل المدة</button> 
      </div> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm"> 
       <div class="flex justify-between items-center mb-6"> 
@@ -200,12 +200,12 @@
        </div> 
       </div> 
       <div class="flex gap-2"> 
-       <input id="new-quiz-name" placeholder="اسم الاختبار" class="flex-1 border-2 p-3 rounded-xl font-bold"> <button onclick="admin.addQuiz()" class="bg-blue-600 text-white px-6 rounded-xl font-black">إنشاء</button> 
+       <input id="new-quiz-name" placeholder="اسم الاختبار" class="flex-1 border-2 p-3 rounded-xl font-bold"> <button type="button" onclick="admin.addQuiz(event)" class="bg-blue-600 text-white px-6 rounded-xl font-black">إنشاء</button> 
       </div> 
      </div> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-purple-600"> 
       <h4 class="font-black text-lg mb-4 text-purple-800">2. إضافة الأسئلة</h4> <select id="adm-target-quiz" class="w-full border-2 p-3 rounded-xl font-bold bg-purple-50 mb-4"></select> 
-      <div class="flex gap-2 mb-4"> <button onclick="document.getElementById('add-manual').classList.remove('hidden');document.getElementById('add-bulk').classList.add('hidden')" class="flex-1 bg-purple-600 text-white py-2 rounded-xl font-bold">يدوي</button> <button onclick="document.getElementById('add-bulk').classList.remove('hidden');document.getElementById('add-manual').classList.add('hidden')" class="flex-1 bg-slate-200 text-slate-700 py-2 rounded-xl font-bold">مجمع (JSON)</button> 
+      <div class="flex gap-2 mb-4"> <button type="button" onclick="document.getElementById('add-manual').classList.remove('hidden');document.getElementById('add-bulk').classList.add('hidden')" class="flex-1 bg-purple-600 text-white py-2 rounded-xl font-bold">يدوي</button> <button type="button" onclick="document.getElementById('add-bulk').classList.remove('hidden');document.getElementById('add-manual').classList.add('hidden')" class="flex-1 bg-slate-200 text-slate-700 py-2 rounded-xl font-bold">مجمع (JSON)</button> 
       </div> 
       <div id="add-manual" class="space-y-3"> <textarea id="q-text" placeholder="نص السؤال" class="w-full border p-3 rounded-xl h-20 font-bold"></textarea> 
        <div class="grid grid-cols-2 gap-2"> 
@@ -214,10 +214,10 @@
         <input id="opt3" placeholder="ج" class="border p-2 rounded-lg font-bold"> 
         <input id="opt4" placeholder="د" class="border p-2 rounded-lg font-bold"> 
        </div> 
-       <input id="q-ans" placeholder="الإجابة الصحيحة" class="w-full border bg-emerald-50 p-3 rounded-xl font-bold text-center"> <button onclick="admin.addManualQ()" class="w-full bg-purple-600 text-white py-3 rounded-xl font-black">حفظ السؤال</button> 
+       <input id="q-ans" placeholder="الإجابة الصحيحة" class="w-full border bg-emerald-50 p-3 rounded-xl font-bold text-center"> <button type="button" onclick="admin.addManualQ(event)" class="w-full bg-purple-600 text-white py-3 rounded-xl font-black">حفظ السؤال</button> 
       </div> 
       <div id="add-bulk" class="hidden space-y-3"> 
-       <p class="text-[10px] font-bold text-slate-500">ضع الأسئلة داخل مصفوفة <code>[...]</code> وتأكد من الفواصل.</p> <textarea id="json-input" class="w-full bg-slate-900 text-green-400 font-mono p-4 rounded-xl h-32 text-xs" dir="ltr"></textarea> <button onclick="admin.processJSON()" class="w-full bg-slate-800 text-white py-3 rounded-xl font-black">استيراد</button> 
+       <p class="text-[10px] font-bold text-slate-500">ضع الأسئلة داخل مصفوفة <code>[...]</code> وتأكد من الفواصل.</p> <textarea id="json-input" class="w-full bg-slate-900 text-green-400 font-mono p-4 rounded-xl h-32 text-xs" dir="ltr"></textarea> <button type="button" onclick="admin.processJSON(event)" class="w-full bg-slate-800 text-white py-3 rounded-xl font-black">استيراد</button> 
       </div> 
      </div> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-red-600"> 
@@ -225,7 +225,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4"> <select id="file-mode" class="border p-3 rounded-xl font-bold"><option value="visitor">🔓 مفتوح</option><option value="subscriber">🔒 للمشتركين</option></select> <select id="file-major" class="border p-3 rounded-xl font-bold text-red-600"></select> <select id="file-minor" class="border p-3 rounded-xl font-bold"></select> 
       </div> 
       <input id="file-name" placeholder="اسم الملف" class="w-full border p-3 rounded-xl font-bold mb-2"> 
-      <input id="file-url" placeholder="الرابط" class="w-full border p-3 rounded-xl font-bold mb-2 text-left" dir="ltr"> <button onclick="admin.addFile()" class="w-full bg-red-600 text-white py-3 rounded-xl font-black">حفظ الملف</button> 
+      <input id="file-url" placeholder="الرابط" class="w-full border p-3 rounded-xl font-bold mb-2 text-left" dir="ltr"> <button type="button" onclick="admin.addFile(event)" class="w-full bg-red-600 text-white py-3 rounded-xl font-black">حفظ الملف</button> 
      </div> 
     </div> 
     <div id="tab-lessons" class="adm-tab space-y-6"> 
@@ -248,7 +248,7 @@
        <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-200"> <label class="block text-sm font-black text-indigo-800 mb-2 flex items-center gap-2"><i class="fas fa-search"></i> ربط الدرس باختبار (مع خاصية البحث)</label> 
         <p class="text-xs font-bold text-slate-500 mb-3">ابحث عن الاختبار بالاسم أو التخصص للوصول السريع، ثم حدده من القائمة.</p> 
         <input type="text" id="lesson-quiz-search" placeholder="🔍 ابحث عن اسم الاختبار هنا..." class="w-full border-2 border-white p-3 rounded-xl mb-3 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all" onkeyup="admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz')"> <select id="lesson-linked-quiz" class="w-full border-2 border-indigo-300 p-3 rounded-xl font-bold bg-white text-indigo-900 shadow-sm" size="4"></select> 
-       </div> <button onclick="admin.addLesson()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black shadow-lg hover:bg-indigo-700 transition-all text-lg flex justify-center items-center gap-2"> <i class="fas fa-save"></i> حفظ ونشر الدرس </button> 
+       </div> <button type="button" onclick="admin.addLesson(event)" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black shadow-lg hover:bg-indigo-700 transition-all text-lg flex justify-center items-center gap-2"> <i class="fas fa-save"></i> حفظ ونشر الدرس </button> 
       </div> 
      </div> 
     </div> 
@@ -293,13 +293,13 @@
       <div> <label class="text-[10px] font-bold block text-red-500">الوقت (د)</label> 
        <input type="number" id="ns-time" class="border p-2 w-full rounded-lg text-center bg-red-50" value="60"> 
       </div> 
-     </div> <button onclick="admin.createSimulation()" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black">إضافة المحاكي</button> 
+     </div> <button type="button" onclick="admin.createSimulation(event)" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black">إضافة المحاكي</button> 
     </div> 
     <div id="tab-manage" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm"> 
      <div class="flex justify-between items-center mb-6 pb-4 border-b"> 
-      <h3 class="font-black text-xl text-slate-800">إدارة المحتوى الكاملة</h3> <button onclick="admin.nuke()" class="text-red-500 font-bold border border-red-200 px-3 py-1 rounded-xl text-xs hover:bg-red-50">حذف المصنع ⚠️</button> 
+      <h3 class="font-black text-xl text-slate-800">إدارة المحتوى الكاملة</h3> <button type="button" onclick="admin.nuke()" class="text-red-500 font-bold border border-red-200 px-3 py-1 rounded-xl text-xs hover:bg-red-50">حذف المصنع ⚠️</button> 
      </div> 
-     <div class="flex gap-2 mb-4 bg-slate-100 p-2 rounded-xl"> <button onclick="admin.bulkDeleteQuizzes()" class="bg-red-500 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-red-600 transition-all shadow hidden" id="bulk-delete-btn"> <i class="fas fa-trash-alt"></i> حذف المحدد </button> <span class="text-xs font-bold text-slate-400 self-center mr-auto">حدد الاختبارات للحذف الجماعي</span> 
+     <div class="flex gap-2 mb-4 bg-slate-100 p-2 rounded-xl"> <button type="button" onclick="admin.bulkDeleteQuizzes()" class="bg-red-500 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-red-600 transition-all shadow hidden" id="bulk-delete-btn"> <i class="fas fa-trash-alt"></i> حذف المحدد </button> <span class="text-xs font-bold text-slate-400 self-center mr-auto">حدد الاختبارات للحذف الجماعي</span> 
      </div> 
      <div id="admin-tree" class="space-y-4"></div> 
     </div> 
@@ -319,7 +319,7 @@
     <div class="flex items-center gap-2"> <label class="text-xs font-bold whitespace-nowrap">رقم الإجابة (0-3):</label> 
      <input id="eq-ans" type="number" class="w-20 border p-2 rounded-lg text-center font-bold"> 
     </div> 
-    <div class="flex gap-2 pt-4"> <button onclick="admin.saveQuestionEdit()" class="flex-1 bg-emerald-600 text-white py-3 rounded-xl font-black shadow">حفظ</button> <button onclick="document.getElementById('edit-q-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold">إلغاء</button> 
+    <div class="flex gap-2 pt-4"> <button type="button" onclick="admin.saveQuestionEdit(event)" class="flex-1 bg-emerald-600 text-white py-3 rounded-xl font-black shadow">حفظ</button> <button type="button" onclick="document.getElementById('edit-q-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold">إلغاء</button> 
     </div> 
    </div> 
   </div> 
@@ -328,7 +328,7 @@
     <h3 class="font-black text-xl text-center text-blue-800">تغيير اسم الاختبار</h3> 
     <input type="hidden" id="edit-name-qid"> 
     <input id="new-quiz-name-input" type="text" class="w-full border-2 border-blue-200 p-4 rounded-xl font-bold text-lg text-center focus:border-blue-500" placeholder="الاسم الجديد"> 
-    <div class="flex gap-2 pt-2"> <button onclick="admin.saveQuizName()" class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-black shadow hover:bg-blue-700">تحديث الاسم</button> <button onclick="document.getElementById('edit-quiz-name-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
+    <div class="flex gap-2 pt-2"> <button type="button" onclick="admin.saveQuizName(event)" class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-black shadow hover:bg-blue-700">تحديث الاسم</button> <button type="button" onclick="document.getElementById('edit-quiz-name-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
     </div> 
    </div> 
   </div> 
@@ -337,7 +337,7 @@
     <h3 class="font-black text-xl text-center text-orange-600">نسخ الاختبار</h3> 
     <p class="text-xs text-center text-slate-500 font-bold">سيتم إنشاء نسخة جديدة مستقلة في القسم المختار.</p> 
     <input type="hidden" id="clone-src-qid"> <label class="block text-xs font-bold text-slate-700 mt-4">اختر القسم الجديد:</label> <select id="clone-target-major" class="w-full border-2 p-3 rounded-xl font-bold text-center"></select> <label class="block text-xs font-bold text-slate-700 mt-2">اختر الفرع:</label> <select id="clone-target-minor" class="w-full border-2 p-3 rounded-xl font-bold text-center"> </select> 
-    <div class="flex gap-2 pt-4"> <button onclick="admin.executeClone()" class="flex-1 bg-orange-600 text-white py-3 rounded-xl font-black shadow hover:bg-orange-700">نسخ الآن</button> <button onclick="document.getElementById('clone-quiz-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold">إلغاء</button> 
+    <div class="flex gap-2 pt-4"> <button type="button" onclick="admin.executeClone(event)" class="flex-1 bg-orange-600 text-white py-3 rounded-xl font-black shadow hover:bg-orange-700">نسخ الآن</button> <button type="button" onclick="document.getElementById('clone-quiz-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold">إلغاء</button> 
     </div> 
    </div> 
   </div> 
@@ -353,12 +353,11 @@
     <div class="bg-indigo-50 p-4 rounded-xl"> <label class="block text-xs font-bold text-indigo-800 mb-2">الاختبار المرتبط (بحث وتعديل)</label> 
      <input type="text" id="el-quiz-search" placeholder="🔍 ابحث عن الاختبار الجديد..." class="w-full border-2 border-white p-2 rounded-xl mb-2 text-sm font-bold shadow-sm focus:border-indigo-500 focus:outline-none transition-all"> <select id="el-quiz" class="w-full border-2 border-indigo-200 p-3 rounded-xl font-bold text-indigo-900" size="4"></select> 
     </div> 
-    <div class="flex gap-2 pt-2"> <button onclick="admin.saveLessonEdit()" class="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-black shadow hover:bg-indigo-700">حفظ التعديلات</button> <button onclick="document.getElementById('edit-lesson-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
+    <div class="flex gap-2 pt-2"> <button type="button" onclick="admin.saveLessonEdit(event)" class="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-black shadow hover:bg-indigo-700">حفظ التعديلات</button> <button type="button" onclick="document.getElementById('edit-lesson-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
     </div> 
    </div> 
   </div> 
   <script>
-        // كود الاتصال الجديد الذي أرسلته (egtaze)
         const firebaseConfig = {
               apiKey: "AIzaSyBpitoHdTQLLZoHMed_0HZyexjcleSZfEc",
               authDomain: "egtaz-86d85.firebaseapp.com",
@@ -376,10 +375,11 @@
         const standardMinors = ['تخصص', 'تربوي', 'جدارات', 'IQ', 'عربي للجميع', 'انجليزي للجميع', 'حاسب آلي', 'معلومات عامة'];
 
         const app = {
-            login: () => {
-                const e = document.getElementById('adm-email').value, p = document.getElementById('adm-pass').value;
-                if(!e||!p) return app.notify("البيانات ناقصة", "error");
-                firebase.auth().signInWithEmailAndPassword(e,p).then(()=>location.reload()).catch(err=>app.notify(err.message, "error"));
+            login: (e) => {
+                if(e) e.preventDefault();
+                const em = document.getElementById('adm-email').value, p = document.getElementById('adm-pass').value;
+                if(!em||!p) return app.notify("البيانات ناقصة", "error");
+                firebase.auth().signInWithEmailAndPassword(em,p).then(()=>location.reload()).catch(err=>app.notify(err.message, "error"));
             },
             logout: () => firebase.auth().signOut().then(()=>location.reload()),
             notify: (msg, type='success') => {
@@ -452,17 +452,19 @@
                     else if(document.getElementById(id)) document.getElementById(id).value = s[k] || ""; 
                 });
             },
-            // التعديل الذكي لحفظ الإعدادات دون استهلاك الباقة
-            saveSettings: () => {
+            saveSettings: (e) => {
+                if(e) e.preventDefault();
                 const s = {};
                 ['siteName','heroTitle','heroDesc','whatsapp','telegram','facebook','footerText','tutorialText','extLinkUrl','extLinkText','appLink','appText','btnVisitor','btnSub'].forEach(k => {
                     let id = 'set-' + k.replace(/[A-Z]/g, x => '-' + x.toLowerCase());
                     if(k === 'tutorialText') id = 'set-tutorial';
                     s[k] = document.getElementById(id).value;
                 });
-                db.settings = s; admin.save(false); app.notify("تم الحفظ بنجاح");
+                db.settings = s; 
+                admin.save(false).then(() => {
+                    app.notify("تم الحفظ بنجاح");
+                });
             },
-            
             populateExistingBranchesCheckbox: () => {
                 const list = document.getElementById('existing-branches-list');
                 const universalBranches = standardMinors.filter(b => b !== 'تخصص');
@@ -473,7 +475,8 @@
                     </label>
                 `).join('');
             },
-            addMajor: () => {
+            addMajor: (e) => {
+                if(e) e.preventDefault();
                 const m = document.getElementById('new-major-name').value.trim();
                 if(!m) return app.notify("يرجى كتابة اسم القسم", "error");
                 
@@ -510,16 +513,16 @@
                     });
 
                     db.majorConfigs[m] = { type: 'custom', branches: branches };
-                    app.notify(`تم إنشاء قسم "${m}" ونسخ ${checkboxes.length > 0 ? 'المحتوى المحدد' : 'لا شيء'} بنجاح`);
                 } else {
                      db.majorConfigs[m] = { type: 'standard' };
-                     app.notify(`تم إضافة قسم "${m}" (قياسي)`);
                 }
 
-                admin.save();
-                document.getElementById('new-major-name').value = '';
-                document.getElementById('new-major-branches').value = '';
-                document.querySelectorAll('.branch-import-check').forEach(cb => cb.checked = false);
+                admin.save().then(() => {
+                    app.notify(`تم إضافة القسم "${m}" بنجاح`);
+                    document.getElementById('new-major-name').value = '';
+                    document.getElementById('new-major-branches').value = '';
+                    document.querySelectorAll('.branch-import-check').forEach(cb => cb.checked = false);
+                });
             },
             deleteMajor: (m) => {
                 if(confirm(`تحذير: هل أنت متأكد من حذف قسم "${m}"؟\nسيتم حذف التكوين، لكن الاختبارات قد تبقى يتيمة إذا لم تحذف يدوياً.`)) {
@@ -541,11 +544,10 @@
                             <span class="font-bold text-lg text-slate-800 flex items-center gap-2"><i class="fas fa-tag text-slate-400"></i> ${m}</span>
                             <div class="mt-1">${typeLabel}</div>
                         </div>
-                        <button onclick="admin.deleteMajor('${m}')" class="text-red-500 hover:bg-red-100 p-2 rounded-lg text-xs font-bold border border-red-200"><i class="fas fa-trash"></i> حذف</button>
+                        <button type="button" onclick="admin.deleteMajor('${m}')" class="text-red-500 hover:bg-red-100 p-2 rounded-lg text-xs font-bold border border-red-200"><i class="fas fa-trash"></i> حذف</button>
                     </div>
                 `}).join('');
             },
-            
             filterLessonQuizzes: (inputId, selectId, currentSelectedId = null) => {
                 const term = document.getElementById(inputId).value.toLowerCase();
                 const select = document.getElementById(selectId);
@@ -567,7 +569,6 @@
                     select.value = currentVal;
                 }
             },
-
             updateDropdowns: () => {
                 const majors = db.majors || [];
                 const opts = majors.map(m => `<option value="${m}">${m}</option>`).join('');
@@ -617,14 +618,14 @@
                      minorSelect.innerHTML = standardMinors.map(m => `<option value="${m === 'تخصص' ? 'تخصص' : m}">${m === 'تخصص' ? 'أسئلة التخصص' : m}</option>`).join('');
                 }
             },
-
             openCloneModal: (qid) => {
                 admin.updateDropdowns();
                 document.getElementById('clone-src-qid').value = qid;
                 document.getElementById('clone-quiz-modal').classList.remove('hidden');
                 admin.updateMinorDropdown({target: document.getElementById('clone-target-major')});
             },
-            executeClone: () => {
+            executeClone: (e) => {
+                if(e) e.preventDefault();
                 const qid = document.getElementById('clone-src-qid').value;
                 const targetMajor = document.getElementById('clone-target-major').value;
                 const targetMinor = document.getElementById('clone-target-minor').value;
@@ -639,13 +640,13 @@
                 newQuiz.minor = targetMinor; 
                 
                 db.quizzes.push(newQuiz);
-                admin.save();
-                document.getElementById('clone-quiz-modal').classList.add('hidden');
-                app.notify("تم نسخ الاختبار بنجاح في القسم الجديد فقط ✅");
+                admin.save().then(() => {
+                    document.getElementById('clone-quiz-modal').classList.add('hidden');
+                    app.notify("تم نسخ الاختبار بنجاح في القسم الجديد فقط ✅");
+                });
             },
-
-            // إضافة المشتركين دون تحديث الإصدار (بدون استهلاك باقة)
-            addUser: () => {
+            addUser: (e) => {
+                if(e) e.preventDefault();
                 const u = document.getElementById('new-user-name').value.trim();
                 const p = document.getElementById('new-user-pass').value.trim();
                 const durVal = parseInt(document.getElementById('new-user-duration').value);
@@ -664,8 +665,11 @@
                     const newKey = Date.now();
                     db.users[newKey] = { id: newKey, username: u, password: p, expiryDate: expiry, isActive: true, createdAt: now, sessionToken: '' };
                 }
-                admin.save(false); app.notify("تم إنشاء حساب المشترك بنجاح");
-                document.getElementById('new-user-name').value = ''; document.getElementById('new-user-pass').value = '';
+                admin.save(false).then(() => {
+                    app.notify("تم إنشاء حساب المشترك بنجاح");
+                    document.getElementById('new-user-name').value = ''; 
+                    document.getElementById('new-user-pass').value = '';
+                });
             },
             renderUsers: () => {
                 const tbody = document.getElementById('users-list-body');
@@ -685,10 +689,10 @@
                         <td class="p-3">${user.username}</td>
                         <td class="p-3 font-mono bg-slate-100 rounded text-center select-all">${user.password}</td>
                         <td class="p-3 text-xs"> ${new Date(user.expiryDate).toLocaleDateString('ar-EG')} <span class="block text-slate-400">متبقي: ${timeLeft}</span> </td>
-                         <td class="p-3 text-center"> ${sessionStatus} <button onclick="admin.resetSession(${user.id})" class="block mx-auto text-[10px] text-red-400 underline mt-1" title="طرد المستخدم">إعادة ضبط</button> </td>
+                         <td class="p-3 text-center"> ${sessionStatus} <button type="button" onclick="admin.resetSession(${user.id})" class="block mx-auto text-[10px] text-red-400 underline mt-1" title="طرد المستخدم">إعادة ضبط</button> </td>
                         <td class="p-3 text-center flex gap-2 justify-center">
-                            <button onclick="admin.toggleUserStatus(${user.id})" class="p-2 rounded hover:bg-slate-200 text-slate-600"> <i class="fas ${user.isActive ? 'fa-pause' : 'fa-play'}"></i> </button>
-                            <button onclick="admin.deleteUser(${user.id})" class="p-2 rounded hover:bg-red-100 text-red-600"> <i class="fas fa-trash"></i> </button>
+                            <button type="button" onclick="admin.toggleUserStatus(${user.id})" class="p-2 rounded hover:bg-slate-200 text-slate-600"> <i class="fas ${user.isActive ? 'fa-pause' : 'fa-play'}"></i> </button>
+                            <button type="button" onclick="admin.deleteUser(${user.id})" class="p-2 rounded hover:bg-red-100 text-red-600"> <i class="fas fa-trash"></i> </button>
                         </td>
                     </tr>`;
                 }).join('');
@@ -709,24 +713,35 @@
                 let found = false;
                 if(Array.isArray(db.users)) { const u = db.users.find(x => x.id === id); if(u) { u.sessionToken = ''; found=true; } } 
                 else { Object.values(db.users).forEach(u => { if(u.id === id) { u.sessionToken = ''; found=true; } }); }
-                if(found) { admin.save(false); app.notify("تم تسجيل خروج المستخدم من الأجهزة"); }
+                if(found) { admin.save(false).then(() => app.notify("تم تسجيل خروج المستخدم من الأجهزة")); }
             },
-            addQuiz: () => {
+            addQuiz: (e) => {
+                if(e) e.preventDefault();
                 const n = document.getElementById('new-quiz-name').value;
                 if(!n) return app.notify("الاسم مطلوب", "error");
                 if(!db.quizzes) db.quizzes = [];
                 db.quizzes.push({ id: Date.now(), name: n, mode: document.getElementById('adm-mode').value, major: document.getElementById('adm-major').value, minor: document.getElementById('adm-minor').value, questions: [] });
-                admin.save(); app.notify("تم إضافة الاختبار");
+                admin.save().then(() => {
+                    app.notify("تم إضافة الاختبار");
+                    document.getElementById('new-quiz-name').value = '';
+                });
             },
-            addManualQ: () => {
+            addManualQ: (e) => {
+                if(e) e.preventDefault();
                 const qid = document.getElementById('adm-target-quiz').value;
                 const q = db.quizzes.find(x=>x.id==qid);
                 if(!q) return app.notify("اختر اختبار", "error");
                 if(!q.questions) q.questions = [];
                 q.questions.push({ text: document.getElementById('q-text').value, opts: [1,2,3,4].map(i=>document.getElementById('opt'+i).value), correctAnswer: [1,2,3,4].map(i=>document.getElementById('opt'+i).value).indexOf(document.getElementById('q-ans').value) });
-                admin.save(); app.notify("تم إضافة السؤال");
+                admin.save().then(() => {
+                    app.notify("تم إضافة السؤال");
+                    document.getElementById('q-text').value = '';
+                    [1,2,3,4].forEach(i=>document.getElementById('opt'+i).value = '');
+                    document.getElementById('q-ans').value = '';
+                });
             },
-            processJSON: () => {
+            processJSON: (e) => {
+                if(e) e.preventDefault();
                 try {
                     let val = document.getElementById('json-input').value.trim();
                     if(!val.startsWith('[') && val.startsWith('{')) val = `[${val}]`; 
@@ -735,15 +750,24 @@
                     const q = db.quizzes.find(x=>x.id==qid);
                     if(!q.questions) q.questions = [];
                     (Array.isArray(data)?data:[data]).forEach(i => q.questions.push({text:i.question, opts:i.options, correctAnswer:i.correctAnswer}));
-                    admin.save(); app.notify("تم الاستيراد بنجاح");
+                    admin.save().then(() => {
+                        app.notify("تم الاستيراد بنجاح");
+                        document.getElementById('json-input').value = '';
+                    });
                 } catch(e) { app.notify("تأكد من صيغة الملف (JSON Array)", "error"); }
             },
-            addFile: () => {
+            addFile: (e) => {
+                if(e) e.preventDefault();
                 if(!db.files) db.files = [];
                 db.files.push({ id: Date.now(), name: document.getElementById('file-name').value, url: document.getElementById('file-url').value, mode: document.getElementById('file-mode').value, major: document.getElementById('file-major').value, minor: document.getElementById('file-minor').value });
-                admin.save(); app.notify("تم إضافة الملف");
+                admin.save().then(() => {
+                    app.notify("تم إضافة الملف");
+                    document.getElementById('file-name').value = '';
+                    document.getElementById('file-url').value = '';
+                });
             },
-            addLesson: () => {
+            addLesson: (e) => {
+                if(e) e.preventDefault();
                 const title = document.getElementById('lesson-title').value.trim();
                 const content = document.getElementById('lesson-content').value.trim();
                 
@@ -760,12 +784,13 @@
                     linkedQuizId: document.getElementById('lesson-linked-quiz').value || null
                 });
                 
-                admin.save();
-                app.notify("تم حفظ الشرح بنجاح ✅");
-                document.getElementById('lesson-title').value = '';
-                document.getElementById('lesson-content').value = '';
-                document.getElementById('lesson-quiz-search').value = '';
-                admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz');
+                admin.save().then(() => {
+                    app.notify("تم حفظ الشرح بنجاح ✅");
+                    document.getElementById('lesson-title').value = '';
+                    document.getElementById('lesson-content').value = '';
+                    document.getElementById('lesson-quiz-search').value = '';
+                    admin.filterLessonQuizzes('lesson-quiz-search', 'lesson-linked-quiz');
+                });
             },
             editLesson: (id) => {
                 const l = db.lessons.find(x => x.id == id);
@@ -781,7 +806,8 @@
                 
                 document.getElementById('edit-lesson-modal').classList.remove('hidden');
             },
-            saveLessonEdit: () => {
+            saveLessonEdit: (e) => {
+                if(e) e.preventDefault();
                 const id = document.getElementById('edit-lesson-id').value;
                 const title = document.getElementById('el-title').value.trim();
                 const content = document.getElementById('el-content').value.trim();
@@ -794,17 +820,22 @@
                     l.title = title;
                     l.content = content;
                     l.linkedQuizId = linkedQuiz || null;
-                    admin.save();
-                    document.getElementById('edit-lesson-modal').classList.add('hidden');
-                    app.notify("تم تعديل الدرس بنجاح ✅");
+                    admin.save().then(() => {
+                        document.getElementById('edit-lesson-modal').classList.add('hidden');
+                        app.notify("تم تعديل الدرس بنجاح ✅");
+                    });
                 }
             },
-            createSimulation: () => {
+            createSimulation: (e) => {
+                if(e) e.preventDefault();
                 const name = document.getElementById('new-sim-name').value;
                 if(!name) return app.notify("اسم المحاكي مطلوب", "error");
                 if(!db.simulations) db.simulations = [];
                 db.simulations.push({ id: Date.now(), name: name, mode: document.getElementById('new-sim-mode').value, targetMajor: document.getElementById('new-sim-major').value, time: parseInt(document.getElementById('ns-time').value) || 60, counts: { spec: parseInt(document.getElementById('ns-spec').value)||0, ped: parseInt(document.getElementById('ns-ped').value)||0, comp: parseInt(document.getElementById('ns-comp').value)||0, iq: parseInt(document.getElementById('ns-iq').value)||0, ar: parseInt(document.getElementById('ns-ar').value)||0, en: parseInt(document.getElementById('ns-en').value)||0, cs: parseInt(document.getElementById('ns-cs').value)||0, gen: parseInt(document.getElementById('ns-gen').value)||0 } });
-                admin.save(); app.notify("تم إنشاء المحاكي بنجاح");
+                admin.save().then(() => {
+                    app.notify("تم إنشاء المحاكي بنجاح");
+                    document.getElementById('new-sim-name').value = '';
+                });
             },
             toggleBulkSelect: (id) => {
                 const btn = document.getElementById('bulk-delete-btn');
@@ -832,7 +863,7 @@
                     fullHtml += ` <details id="${simId}" ${openIds.has(simId) ? 'open' : ''}> <summary> <span class="text-slate-800 flex items-center gap-2"> <i class="fas fa-bolt text-yellow-500"></i> المحاكيات </span> <div class="flex items-center gap-3"> <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">${db.simulations.length}</span> <i class="fas fa-chevron-down arrow-icon text-slate-400"></i> </div> </summary> <div class="details-content space-y-2">`;
                     db.simulations.forEach(s => {
                         const locked = s.mode === 'subscriber';
-                        fullHtml += ` <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200 flex justify-between items-center"> <div> <span class="text-xs font-bold ${locked?'text-red-500':'text-green-500'}">[ ${locked?'مغلق':'مفتوح'} ]</span> <span class="font-bold">${s.name}</span> <span class="text-xs text-blue-600 font-bold mx-2">(${s.targetMajor || 'عام'})</span> </div> <div class="flex gap-2"> <button onclick="admin.toggleLock('sim', ${s.id})" class="text-xs bg-white px-2 py-1 rounded border hover:bg-slate-100">${locked?'🔓 فتح':'🔒 قفل'}</button> <button onclick="admin.delItem('sim', ${s.id})" class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded border border-red-200 hover:bg-red-200">حذف</button> </div> </div>`;
+                        fullHtml += ` <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-200 flex justify-between items-center"> <div> <span class="text-xs font-bold ${locked?'text-red-500':'text-green-500'}">[ ${locked?'مغلق':'مفتوح'} ]</span> <span class="font-bold">${s.name}</span> <span class="text-xs text-blue-600 font-bold mx-2">(${s.targetMajor || 'عام'})</span> </div> <div class="flex gap-2"> <button type="button" onclick="admin.toggleLock('sim', ${s.id})" class="text-xs bg-white px-2 py-1 rounded border hover:bg-slate-100">${locked?'🔓 فتح':'🔒 قفل'}</button> <button type="button" onclick="admin.delItem('sim', ${s.id})" class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded border border-red-200 hover:bg-red-200">حذف</button> </div> </div>`;
                     });
                     fullHtml += `</div></details>`;
                 }
@@ -865,11 +896,11 @@
                                 const locked = q.mode === 'subscriber';
                                 let questionsHtml = '';
                                 (q.questions || []).forEach((sq, i) => {
-                                    questionsHtml += ` <div class="flex justify-between items-center bg-white p-2 rounded border border-slate-100 shadow-sm mt-1"> <span class="text-xs font-bold text-slate-600 truncate w-3/4">${i+1}. ${sq.text}</span> <div class="flex gap-1"> <button onclick="admin.editQ(${q.id}, ${i})" class="text-xs text-emerald-500 p-1 hover:bg-emerald-50 rounded"><i class="fas fa-edit"></i></button> <button onclick="admin.delQ(${q.id}, ${i})" class="text-xs text-red-500 p-1 hover:bg-red-50 rounded"><i class="fas fa-trash"></i></button> </div> </div>`;
+                                    questionsHtml += ` <div class="flex justify-between items-center bg-white p-2 rounded border border-slate-100 shadow-sm mt-1"> <span class="text-xs font-bold text-slate-600 truncate w-3/4">${i+1}. ${sq.text}</span> <div class="flex gap-1"> <button type="button" onclick="admin.editQ(${q.id}, ${i})" class="text-xs text-emerald-500 p-1 hover:bg-emerald-50 rounded"><i class="fas fa-edit"></i></button> <button type="button" onclick="admin.delQ(${q.id}, ${i})" class="text-xs text-red-500 p-1 hover:bg-red-50 rounded"><i class="fas fa-trash"></i></button> </div> </div>`;
                                 });
                                 const qDetailsId = `q-det-${q.id}`; const isQOpen = openIds.has(qDetailsId);
-                                fullHtml += ` <div class="bg-white p-3 rounded-lg border shadow-sm relative"> <div class="absolute top-3 left-3 flex gap-2"> <input type="checkbox" class="q-select w-5 h-5 accent-red-500 cursor-pointer" value="${q.id}" onchange="admin.toggleBulkSelect()"> </div> <div class="flex flex-col md:flex-row justify-between items-center gap-2 pl-8"> <div class="flex items-center gap-2"> <span class="text-[10px] font-bold ${locked?'bg-red-100 text-red-600':'bg-green-100 text-green-600'} px-2 py-1 rounded-lg">${locked?'مغلق':'مفتوح'}</span> <h5 class="font-bold text-slate-800">${q.name}</h5> <span class="text-[10px] text-slate-400">(${q.minor})</span> <button onclick="admin.openRenameModal(${q.id})" class="text-slate-400 hover:text-blue-600 transition-colors" title="تعديل الاسم"><i class="fas fa-pen text-xs"></i></button> </div> <div class="flex gap-2"> <button onclick="admin.toggleQs('${qDetailsId}')" class="text-xs bg-blue-50 text-blue-600 px-3 py-2 rounded-lg font-bold border border-blue-100 hover:bg-blue-100">الأسئلة (${q.questions?.length||0})</button> 
-                                <button onclick="admin.openCloneModal(${q.id})" class="text-xs bg-orange-50 text-orange-600 px-3 py-2 rounded-lg font-bold border border-orange-100 hover:bg-orange-100" title="نسخ الاختبار لقسم آخر"><i class="fas fa-copy"></i> نسخ</button> <button onclick="admin.toggleLock('quiz', ${q.id})" class="text-xs bg-slate-100 text-slate-600 px-3 py-2 rounded-lg font-bold hover:bg-slate-200">${locked?'🔓 فتح':'🔒 قفل'}</button> <button onclick="admin.delItem('quiz', ${q.id})" class="text-xs bg-red-50 text-red-600 px-3 py-2 rounded-lg font-bold hover:bg-red-100">حذف</button> </div> </div> <div id="${qDetailsId}" class="${isQOpen ? '' : 'hidden'} mt-4 pt-4 border-t space-y-2 bg-slate-50 p-2 rounded-lg" data-is-open="${isQOpen}"> ${questionsHtml} </div> </div>`;
+                                fullHtml += ` <div class="bg-white p-3 rounded-lg border shadow-sm relative"> <div class="absolute top-3 left-3 flex gap-2"> <input type="checkbox" class="q-select w-5 h-5 accent-red-500 cursor-pointer" value="${q.id}" onchange="admin.toggleBulkSelect()"> </div> <div class="flex flex-col md:flex-row justify-between items-center gap-2 pl-8"> <div class="flex items-center gap-2"> <span class="text-[10px] font-bold ${locked?'bg-red-100 text-red-600':'bg-green-100 text-green-600'} px-2 py-1 rounded-lg">${locked?'مغلق':'مفتوح'}</span> <h5 class="font-bold text-slate-800">${q.name}</h5> <span class="text-[10px] text-slate-400">(${q.minor})</span> <button type="button" onclick="admin.openRenameModal(${q.id})" class="text-slate-400 hover:text-blue-600 transition-colors" title="تعديل الاسم"><i class="fas fa-pen text-xs"></i></button> </div> <div class="flex gap-2"> <button type="button" onclick="admin.toggleQs('${qDetailsId}')" class="text-xs bg-blue-50 text-blue-600 px-3 py-2 rounded-lg font-bold border border-blue-100 hover:bg-blue-100">الأسئلة (${q.questions?.length||0})</button> 
+                                <button type="button" onclick="admin.openCloneModal(${q.id})" class="text-xs bg-orange-50 text-orange-600 px-3 py-2 rounded-lg font-bold border border-orange-100 hover:bg-orange-100" title="نسخ الاختبار لقسم آخر"><i class="fas fa-copy"></i> نسخ</button> <button type="button" onclick="admin.toggleLock('quiz', ${q.id})" class="text-xs bg-slate-100 text-slate-600 px-3 py-2 rounded-lg font-bold hover:bg-slate-200">${locked?'🔓 فتح':'🔒 قفل'}</button> <button type="button" onclick="admin.delItem('quiz', ${q.id})" class="text-xs bg-red-50 text-red-600 px-3 py-2 rounded-lg font-bold hover:bg-red-100">حذف</button> </div> </div> <div id="${qDetailsId}" class="${isQOpen ? '' : 'hidden'} mt-4 pt-4 border-t space-y-2 bg-slate-50 p-2 rounded-lg" data-is-open="${isQOpen}"> ${questionsHtml} </div> </div>`;
                             });
                             fullHtml += `</div></details>`;
                         }
@@ -881,7 +912,7 @@
                     fullHtml += ` <h4 class="font-black text-xl text-slate-800 mb-4 mt-6 border-b pb-2 flex items-center gap-2"><i class="fas fa-book-reader text-indigo-600"></i> الشروحات والدروس</h4> <details id="${lessonId}" ${openIds.has(lessonId) ? 'open' : ''}> <summary> <span class="text-slate-800 flex items-center gap-2"> <i class="fas fa-layer-group text-indigo-500"></i> أرشيف الدروس </span> <div class="flex items-center gap-3"> <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">${db.lessons.length}</span> <i class="fas fa-chevron-down arrow-icon text-slate-400"></i> </div> </summary> <div class="details-content space-y-2">`;
                     db.lessons.forEach(l => {
                         const locked = l.mode === 'subscriber';
-                        fullHtml += ` <div class="bg-white p-4 rounded-xl border-r-4 border-indigo-400 flex justify-between items-center shadow-sm"> <div> <span class="text-[10px] ${locked?'text-red-500':'text-green-500'} font-bold">[${locked?'مغلق':'مفتوح'}]</span> <span class="font-bold text-sm">${l.title}</span> <span class="text-xs text-slate-400">(${l.major} - ${l.minor})</span> </div> <div class="flex gap-2"> <button onclick="admin.editLesson(${l.id})" class="text-xs bg-indigo-50 text-indigo-600 px-2 py-1 rounded border border-indigo-100 hover:bg-indigo-100"><i class="fas fa-edit"></i> تعديل</button> <button onclick="admin.toggleLock('lesson', ${l.id})" class="text-xs bg-slate-100 px-2 py-1 rounded hover:bg-slate-200">${locked?'🔓':'🔒'}</button> <button onclick="admin.delItem('lesson', ${l.id})" class="text-xs bg-red-50 text-red-500 px-2 py-1 rounded hover:bg-red-100">حذف</button> </div> </div>`;
+                        fullHtml += ` <div class="bg-white p-4 rounded-xl border-r-4 border-indigo-400 flex justify-between items-center shadow-sm"> <div> <span class="text-[10px] ${locked?'text-red-500':'text-green-500'} font-bold">[${locked?'مغلق':'مفتوح'}]</span> <span class="font-bold text-sm">${l.title}</span> <span class="text-xs text-slate-400">(${l.major} - ${l.minor})</span> </div> <div class="flex gap-2"> <button type="button" onclick="admin.editLesson(${l.id})" class="text-xs bg-indigo-50 text-indigo-600 px-2 py-1 rounded border border-indigo-100 hover:bg-indigo-100"><i class="fas fa-edit"></i> تعديل</button> <button type="button" onclick="admin.toggleLock('lesson', ${l.id})" class="text-xs bg-slate-100 px-2 py-1 rounded hover:bg-slate-200">${locked?'🔓':'🔒'}</button> <button type="button" onclick="admin.delItem('lesson', ${l.id})" class="text-xs bg-red-50 text-red-500 px-2 py-1 rounded hover:bg-red-100">حذف</button> </div> </div>`;
                     });
                     fullHtml += `</div></details>`;
                 }
@@ -891,7 +922,7 @@
                     fullHtml += ` <h4 class="font-black text-xl text-slate-800 mb-4 mt-6 border-b pb-2 flex items-center gap-2"><i class="fas fa-file-pdf text-red-600"></i> الملفات</h4> <details id="${fileId}" ${openIds.has(fileId) ? 'open' : ''}> <summary> <span class="text-slate-800 flex items-center gap-2"> <i class="fas fa-folder-open text-red-500"></i> أرشيف الملفات </span> <div class="flex items-center gap-3"> <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">${db.files.length}</span> <i class="fas fa-chevron-down arrow-icon text-slate-400"></i> </div> </summary> <div class="details-content space-y-2">`;
                     db.files.forEach(f => {
                         const locked = f.mode === 'subscriber';
-                        fullHtml += ` <div class="bg-white p-4 rounded-xl border-r-4 border-red-400 flex justify-between items-center shadow-sm"> <div> <span class="text-[10px] ${locked?'text-red-500':'text-green-500'} font-bold">[${locked?'مغلق':'مفتوح'}]</span> <span class="font-bold text-sm">${f.name}</span> <span class="text-xs text-slate-400">(${f.major} - ${f.minor})</span> </div> <div class="flex gap-2"> <button onclick="admin.toggleLock('file', ${f.id})" class="text-xs bg-slate-100 px-2 py-1 rounded hover:bg-slate-200">${locked?'🔓':'🔒'}</button> <button onclick="admin.delItem('file', ${f.id})" class="text-xs bg-red-50 text-red-500 px-2 py-1 rounded hover:bg-red-100">حذف</button> </div> </div>`;
+                        fullHtml += ` <div class="bg-white p-4 rounded-xl border-r-4 border-red-400 flex justify-between items-center shadow-sm"> <div> <span class="text-[10px] ${locked?'text-red-500':'text-green-500'} font-bold">[${locked?'مغلق':'مفتوح'}]</span> <span class="font-bold text-sm">${f.name}</span> <span class="text-xs text-slate-400">(${f.major} - ${f.minor})</span> </div> <div class="flex gap-2"> <button type="button" onclick="admin.toggleLock('file', ${f.id})" class="text-xs bg-slate-100 px-2 py-1 rounded hover:bg-slate-200">${locked?'🔓':'🔒'}</button> <button type="button" onclick="admin.delItem('file', ${f.id})" class="text-xs bg-red-50 text-red-500 px-2 py-1 rounded hover:bg-red-100">حذف</button> </div> </div>`;
                     });
                     fullHtml += `</div></details>`;
                 }
@@ -910,19 +941,19 @@
                 admin.save();
             },
             openRenameModal: (qid) => { const q = db.quizzes.find(x=>x.id==qid); document.getElementById('edit-name-qid').value = qid; document.getElementById('new-quiz-name-input').value = q.name; document.getElementById('edit-quiz-name-modal').classList.remove('hidden'); },
-            saveQuizName: () => { const qid = document.getElementById('edit-name-qid').value; const newName = document.getElementById('new-quiz-name-input').value; if(!newName) return app.notify("الاسم لا يمكن أن يكون فارغاً", "error"); const q = db.quizzes.find(x=>x.id==qid); q.name = newName; admin.save(); document.getElementById('edit-quiz-name-modal').classList.add('hidden'); app.notify("تم تحديث اسم الاختبار"); },
+            saveQuizName: (e) => { if(e) e.preventDefault(); const qid = document.getElementById('edit-name-qid').value; const newName = document.getElementById('new-quiz-name-input').value; if(!newName) return app.notify("الاسم لا يمكن أن يكون فارغاً", "error"); const q = db.quizzes.find(x=>x.id==qid); q.name = newName; admin.save().then(() => { document.getElementById('edit-quiz-name-modal').classList.add('hidden'); app.notify("تم تحديث اسم الاختبار"); }); },
             editQ: (qid, idx) => { const q = db.quizzes.find(x=>x.id==qid).questions[idx]; document.getElementById('edit-qid').value = qid; document.getElementById('edit-idx').value = idx; document.getElementById('eq-text').value = q.text; [0,1,2,3].forEach(i => document.getElementById('eq-o'+i).value = q.opts[i]); document.getElementById('eq-ans').value = q.correctAnswer; document.getElementById('edit-q-modal').classList.remove('hidden'); },
-            saveQuestionEdit: () => { const qid = document.getElementById('edit-qid').value; const idx = document.getElementById('edit-idx').value; const q = db.quizzes.find(x=>x.id==qid); q.questions[idx] = { text: document.getElementById('eq-text').value, opts: [0,1,2,3].map(i=>document.getElementById('eq-o'+i).value), correctAnswer: parseInt(document.getElementById('eq-ans').value) }; admin.save(); document.getElementById('edit-q-modal').classList.add('hidden'); app.notify("تم التعديل"); },
+            saveQuestionEdit: (e) => { if(e) e.preventDefault(); const qid = document.getElementById('edit-qid').value; const idx = document.getElementById('edit-idx').value; const q = db.quizzes.find(x=>x.id==qid); q.questions[idx] = { text: document.getElementById('eq-text').value, opts: [0,1,2,3].map(i=>document.getElementById('eq-o'+i).value), correctAnswer: parseInt(document.getElementById('eq-ans').value) }; admin.save().then(() => { document.getElementById('edit-q-modal').classList.add('hidden'); app.notify("تم التعديل"); }); },
             delItem: (type, id) => { if(!confirm("تأكيد الحذف؟")) return; if(type==='quiz') db.quizzes = db.quizzes.filter(x=>x.id!=id); else if(type==='file') db.files = db.files.filter(x=>x.id!=id); else if(type==='lesson') db.lessons = db.lessons.filter(x=>x.id!=id); else db.simulations = db.simulations.filter(x=>x.id!=id); admin.save(); },
             delQ: (qid, idx) => { if(!confirm("حذف السؤال نهائياً؟")) return; const q = db.quizzes.find(x=>x.id==qid); q.questions.splice(idx, 1); admin.save(); },
             nuke: () => { if(confirm("تحذير: هذا سيحذف كل شيء!")) { db={quizzes:[],files:[],simulations:[],settings:db.settings,users:[], majors:db.majors, majorConfigs:{}, lessons:[], lastUpdated:Date.now()}; admin.save(); } },
             
-            // الدالة المعدلة للتحكم في تحديث الإصدار
+            // الدالة المعدلة لمنع التكرار والتأكد من إرسال البيانات
             save: (isContentChange = true) => {
                 if (isContentChange) {
                     db.lastUpdated = Date.now();
                 }
-                dbRef.set(db);
+                return dbRef.set(db); // إرجاع وعد (Promise) للتأكد من وصول البيانات
             }
         };
         app.init();
