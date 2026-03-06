@@ -71,6 +71,7 @@
     </div> 
     <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> <button type="button" onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> <button type="button" onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> <button type="button" onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> <button type="button" onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> <button type="button" onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button> <button type="button" onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> <button type="button" onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
     </div> 
+    
     <div id="tab-settings" class="adm-tab active block bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100"> 
      <h3 class="font-black text-xl mb-6 text-emerald-700 border-r-4 border-emerald-500 pr-3">إعدادات النصوص والروابط</h3> 
      <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> 
@@ -127,6 +128,7 @@
      <div class="mt-6"> <label class="text-xs font-bold text-slate-400">تعليمات الصفحة الرئيسية:</label> <textarea id="set-tutorial" class="w-full border p-3 rounded-2xl h-24 font-bold bg-slate-50 text-slate-700"></textarea> 
      </div> <button type="button" onclick="admin.saveSettings(event)" class="w-full bg-emerald-600 text-white py-4 rounded-2xl mt-6 font-black shadow-lg hover:bg-emerald-700 transition-all">حفظ الإعدادات ✅</button> 
     </div> 
+    
     <div id="tab-majors" class="adm-tab space-y-6"> 
      <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-orange-500"> 
       <h4 class="font-black text-2xl mb-4 text-orange-800 flex items-center gap-2"> <i class="fas fa-plus-circle"></i> إضافة قسم جديد </h4> 
@@ -157,6 +159,7 @@
       </div> 
      </div> 
     </div> 
+    
     <div id="tab-users" class="adm-tab space-y-6"> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-emerald-500"> 
       <h4 class="font-black text-lg mb-4 text-emerald-800"><i class="fas fa-user-plus"></i> إضافة مشترك جديد</h4> 
@@ -190,6 +193,7 @@
       </div> 
      </div> 
     </div> 
+    
     <div id="tab-create" class="adm-tab space-y-6"> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-blue-600"> 
       <h4 class="font-black text-lg mb-4 text-blue-800">1. إنشاء اختبار جديد</h4> 
@@ -203,23 +207,34 @@
        <input id="new-quiz-name" placeholder="اسم الاختبار" class="flex-1 border-2 p-3 rounded-xl font-bold"> <button type="button" onclick="admin.addQuiz(event)" class="bg-blue-600 text-white px-6 rounded-xl font-black">إنشاء</button> 
       </div> 
      </div> 
+     
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-purple-600"> 
       <h4 class="font-black text-lg mb-4 text-purple-800">2. إضافة الأسئلة</h4> <select id="adm-target-quiz" class="w-full border-2 p-3 rounded-xl font-bold bg-purple-50 mb-4"></select> 
       <div class="flex gap-2 mb-4"> <button type="button" onclick="document.getElementById('add-manual').classList.remove('hidden');document.getElementById('add-bulk').classList.add('hidden')" class="flex-1 bg-purple-600 text-white py-2 rounded-xl font-bold">يدوي</button> <button type="button" onclick="document.getElementById('add-bulk').classList.remove('hidden');document.getElementById('add-manual').classList.add('hidden')" class="flex-1 bg-slate-200 text-slate-700 py-2 rounded-xl font-bold">مجمع (JSON)</button> 
       </div> 
-      <div id="add-manual" class="space-y-3"> <textarea id="q-text" placeholder="نص السؤال" class="w-full border p-3 rounded-xl h-20 font-bold"></textarea> 
+      
+      <div id="add-manual" class="space-y-3"> 
+       <textarea id="q-text" placeholder="نص السؤال" class="w-full border p-3 rounded-xl h-20 font-bold"></textarea> 
+       
+       <div class="relative">
+           <i class="fas fa-image absolute top-4 left-4 text-slate-400"></i>
+           <input id="q-image" placeholder="رابط صورة توضيحية للسؤال (اختياري) - مفيد للـ IQ" class="w-full border p-3 pl-10 rounded-xl font-bold text-left text-sm text-blue-600 bg-blue-50/30" dir="ltr"> 
+       </div>
+
        <div class="grid grid-cols-2 gap-2"> 
         <input id="opt1" placeholder="أ" class="border p-2 rounded-lg font-bold"> 
         <input id="opt2" placeholder="ب" class="border p-2 rounded-lg font-bold"> 
         <input id="opt3" placeholder="ج" class="border p-2 rounded-lg font-bold"> 
         <input id="opt4" placeholder="د" class="border p-2 rounded-lg font-bold"> 
        </div> 
-       <input id="q-ans" placeholder="الإجابة الصحيحة" class="w-full border bg-emerald-50 p-3 rounded-xl font-bold text-center"> <button type="button" onclick="admin.addManualQ(event)" class="w-full bg-purple-600 text-white py-3 rounded-xl font-black">حفظ السؤال</button> 
+       <input id="q-ans" placeholder="الإجابة الصحيحة (اكتب النص كاملاً)" class="w-full border bg-emerald-50 p-3 rounded-xl font-bold text-center"> <button type="button" onclick="admin.addManualQ(event)" class="w-full bg-purple-600 text-white py-3 rounded-xl font-black shadow-lg">حفظ السؤال</button> 
       </div> 
+      
       <div id="add-bulk" class="hidden space-y-3"> 
-       <p class="text-[10px] font-bold text-slate-500">ضع الأسئلة داخل مصفوفة <code>[...]</code> وتأكد من الفواصل.</p> <textarea id="json-input" class="w-full bg-slate-900 text-green-400 font-mono p-4 rounded-xl h-32 text-xs" dir="ltr"></textarea> <button type="button" onclick="admin.processJSON(event)" class="w-full bg-slate-800 text-white py-3 rounded-xl font-black">استيراد</button> 
+       <p class="text-[10px] font-bold text-slate-500">يمكنك تضمين حقل <code>"imageUrl": "رابط الصورة"</code> إذا كان السؤال يحتاج صورة.</p> <textarea id="json-input" class="w-full bg-slate-900 text-green-400 font-mono p-4 rounded-xl h-32 text-xs" dir="ltr"></textarea> <button type="button" onclick="admin.processJSON(event)" class="w-full bg-slate-800 text-white py-3 rounded-xl font-black">استيراد</button> 
       </div> 
      </div> 
+     
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-red-600"> 
       <h4 class="font-black text-lg mb-4 text-red-700">3. إضافة ملفات</h4> 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4"> <select id="file-mode" class="border p-3 rounded-xl font-bold"><option value="visitor">🔓 مفتوح</option><option value="subscriber">🔒 للمشتركين</option></select> <select id="file-major" class="border p-3 rounded-xl font-bold text-red-600"></select> <select id="file-minor" class="border p-3 rounded-xl font-bold"></select> 
@@ -228,6 +243,7 @@
       <input id="file-url" placeholder="الرابط" class="w-full border p-3 rounded-xl font-bold mb-2 text-left" dir="ltr"> <button type="button" onclick="admin.addFile(event)" class="w-full bg-red-600 text-white py-3 rounded-xl font-black">حفظ الملف</button> 
      </div> 
     </div> 
+    
     <div id="tab-lessons" class="adm-tab space-y-6"> 
      <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-indigo-600"> 
       <h4 class="font-black text-2xl mb-4 text-indigo-800 flex items-center gap-2"><i class="fas fa-book-reader"></i> إضافة درس / شرح جديد</h4> 
@@ -252,6 +268,7 @@
       </div> 
      </div> 
     </div> 
+    
     <div id="tab-simulation" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm border border-yellow-400"> 
      <h3 class="font-black text-xl mb-6 text-slate-800">⚙️ إنشاء اختبار محاكي جديد</h3> 
      <p class="text-sm font-bold text-blue-600 mb-4 bg-blue-50 p-2 rounded">ملاحظة: جميع المحاكيات تظهر في قسم خاص للمستخدم باسم "محاكيات التنظيم والإدارة".</p> 
@@ -295,6 +312,7 @@
       </div> 
      </div> <button type="button" onclick="admin.createSimulation(event)" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black">إضافة المحاكي</button> 
     </div> 
+    
     <div id="tab-manage" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm"> 
      <div class="flex justify-between items-center mb-6 pb-4 border-b"> 
       <h3 class="font-black text-xl text-slate-800">إدارة المحتوى الكاملة</h3> <button type="button" onclick="admin.nuke()" class="text-red-500 font-bold border border-red-200 px-3 py-1 rounded-xl text-xs hover:bg-red-50">حذف المصنع ⚠️</button> 
@@ -305,11 +323,19 @@
     </div> 
    </div> 
   </div> 
+
   <div id="edit-q-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-lg space-y-4 shadow-2xl"> 
     <h3 class="font-black text-xl text-center">تعديل السؤال</h3> 
     <input type="hidden" id="edit-qid"> 
-    <input type="hidden" id="edit-idx"> <textarea id="eq-text" class="w-full border p-4 rounded-xl h-28 font-bold text-lg"></textarea> 
+    <input type="hidden" id="edit-idx"> 
+    <textarea id="eq-text" class="w-full border p-4 rounded-xl h-24 font-bold text-lg"></textarea> 
+    
+    <div class="relative">
+        <i class="fas fa-image absolute top-4 left-4 text-slate-400"></i>
+        <input id="eq-image" placeholder="رابط صورة توضيحية للسؤال (اختياري)" class="w-full border p-3 pl-10 rounded-xl font-bold text-left text-sm text-blue-600 bg-blue-50/30" dir="ltr"> 
+    </div>
+
     <div class="grid grid-cols-2 gap-3"> 
      <input id="eq-o0" class="border p-3 rounded-lg font-bold"> 
      <input id="eq-o1" class="border p-3 rounded-lg font-bold"> 
@@ -319,10 +345,11 @@
     <div class="flex items-center gap-2"> <label class="text-xs font-bold whitespace-nowrap">رقم الإجابة (0-3):</label> 
      <input id="eq-ans" type="number" class="w-20 border p-2 rounded-lg text-center font-bold"> 
     </div> 
-    <div class="flex gap-2 pt-4"> <button type="button" onclick="admin.saveQuestionEdit(event)" class="flex-1 bg-emerald-600 text-white py-3 rounded-xl font-black shadow">حفظ</button> <button type="button" onclick="document.getElementById('edit-q-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold">إلغاء</button> 
+    <div class="flex gap-2 pt-4"> <button type="button" onclick="admin.saveQuestionEdit(event)" class="flex-1 bg-emerald-600 text-white py-3 rounded-xl font-black shadow hover:bg-emerald-700">حفظ التعديلات</button> <button type="button" onclick="document.getElementById('edit-q-modal').classList.add('hidden')" class="flex-1 bg-slate-100 text-slate-500 py-3 rounded-xl font-bold hover:bg-slate-200">إلغاء</button> 
     </div> 
    </div> 
   </div> 
+
   <div id="edit-quiz-name-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-sm space-y-4 shadow-2xl"> 
     <h3 class="font-black text-xl text-center text-blue-800">تغيير اسم الاختبار</h3> 
@@ -332,6 +359,7 @@
     </div> 
    </div> 
   </div> 
+
   <div id="clone-quiz-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-sm space-y-4 shadow-2xl"> 
     <h3 class="font-black text-xl text-center text-orange-600">نسخ الاختبار</h3> 
@@ -341,6 +369,7 @@
     </div> 
    </div> 
   </div> 
+
   <div id="edit-lesson-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-2xl space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto"> 
     <h3 class="font-black text-xl text-center text-indigo-800">تعديل الدرس / الشرح</h3> 
@@ -357,6 +386,7 @@
     </div> 
    </div> 
   </div> 
+
   <script>
         const firebaseConfig = {
               apiKey: "AIzaSyBpitoHdTQLLZoHMed_0HZyexjcleSZfEc",
@@ -375,6 +405,7 @@
         const standardMinors = ['تخصص', 'تربوي', 'جدارات', 'IQ', 'عربي للجميع', 'انجليزي للجميع', 'حاسب آلي', 'معلومات عامة'];
 
         const app = {
+            notifyTimeout: null,
             login: (e) => {
                 if(e) e.preventDefault();
                 const em = document.getElementById('adm-email').value, p = document.getElementById('adm-pass').value;
@@ -382,15 +413,16 @@
                 firebase.auth().signInWithEmailAndPassword(em,p).then(()=>location.reload()).catch(err=>app.notify(err.message, "error"));
             },
             logout: () => firebase.auth().signOut().then(()=>location.reload()),
-            notify: (msg, type='success') => {
+            notify: (msg, type='success', keepOpen=false) => {
                 const t = document.getElementById('toast-notification');
                 const i = document.getElementById('toast-icon');
                 const m = document.getElementById('toast-msg');
-                t.className = `fixed top-5 left-1/2 -translate-x-1/2 z-[9999] flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl text-white font-bold min-w-[300px] justify-center transition-all duration-300 ${type==='error'?'bg-red-600':'bg-emerald-600'}`;
-                i.className = type==='error' ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
+                t.className = `fixed top-5 left-1/2 -translate-x-1/2 z-[9999] flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl text-white font-bold min-w-[300px] justify-center transition-all duration-300 ${type==='error'?'bg-red-600':type==='loading'?'bg-blue-600':'bg-emerald-600'}`;
+                i.className = type==='error' ? 'fas fa-exclamation-circle' : type==='loading' ? 'fas fa-spinner fa-spin' : 'fas fa-check-circle';
                 m.innerText = msg;
                 t.classList.add('show');
-                setTimeout(() => t.classList.remove('show'), 3000);
+                if(app.notifyTimeout) clearTimeout(app.notifyTimeout);
+                if(!keepOpen) { app.notifyTimeout = setTimeout(() => t.classList.remove('show'), 3000); }
             },
             init: () => {
                 firebase.auth().onAuthStateChanged(user => {
@@ -403,7 +435,7 @@
                             document.getElementById('visitor-counter').innerText = snap.val() || 0;
                         });
 
-                        dbRef.on('value', snap => {
+                        dbRef.once('value', snap => {
                             const val = snap.val();
                             if(val) db = val;
                             
@@ -416,15 +448,11 @@
                             
                             if(!db.majors || !Array.isArray(db.majors)) {
                                 db.majors = ['لغة عربية', 'رياضيات', 'علوم', 'دراسات', 'لغة إنجليزية'];
-                                admin.save();
+                                admin.save(true);
                             }
 
                             admin.loadSettings();
-                            admin.renderMajors(); 
-                            admin.populateExistingBranchesCheckbox();
-                            admin.updateDropdowns(); 
-                            admin.renderTree();
-                            admin.renderUsers();
+                            admin.refreshUI(); 
                         });
                         
                         document.getElementById('adm-major').addEventListener('change', admin.updateMinorDropdown);
@@ -437,6 +465,13 @@
         };
 
         const admin = {
+            refreshUI: () => {
+                admin.renderMajors(); 
+                admin.populateExistingBranchesCheckbox();
+                admin.updateDropdowns(); 
+                admin.renderTree();
+                admin.renderUsers();
+            },
             switchTab: (t) => {
                 document.querySelectorAll('.adm-tab').forEach(e=>e.classList.remove('active'));
                 document.getElementById('tab-'+t).classList.add('active');
@@ -461,9 +496,7 @@
                     s[k] = document.getElementById(id).value;
                 });
                 db.settings = s; 
-                admin.save(false).then(() => {
-                    app.notify("تم الحفظ بنجاح");
-                });
+                admin.save(false, 'settings').then(() => { app.notify("تم الحفظ بنجاح"); });
             },
             populateExistingBranchesCheckbox: () => {
                 const list = document.getElementById('existing-branches-list');
@@ -565,9 +598,7 @@
                 const currentVal = select.value;
                 select.innerHTML = html;
                 
-                if(select.querySelector(`option[value="${currentVal}"]`)) {
-                    select.value = currentVal;
-                }
+                if(select.querySelector(`option[value="${currentVal}"]`)) { select.value = currentVal; }
             },
             updateDropdowns: () => {
                 const majors = db.majors || [];
@@ -640,9 +671,9 @@
                 newQuiz.minor = targetMinor; 
                 
                 db.quizzes.push(newQuiz);
-                admin.save().then(() => {
+                admin.save(true, 'quizzes').then(() => {
                     document.getElementById('clone-quiz-modal').classList.add('hidden');
-                    app.notify("تم نسخ الاختبار بنجاح في القسم الجديد فقط ✅");
+                    app.notify("تم نسخ الاختبار بنجاح ✅");
                 });
             },
             addUser: (e) => {
@@ -665,8 +696,7 @@
                     const newKey = Date.now();
                     db.users[newKey] = { id: newKey, username: u, password: p, expiryDate: expiry, isActive: true, createdAt: now, sessionToken: '' };
                 }
-                admin.save(false).then(() => {
-                    app.notify("تم إنشاء حساب المشترك بنجاح");
+                admin.save(false, 'users').then(() => {
                     document.getElementById('new-user-name').value = ''; 
                     document.getElementById('new-user-pass').value = '';
                 });
@@ -700,20 +730,20 @@
             toggleUserStatus: (id) => {
                 if(Array.isArray(db.users)) { const u = db.users.find(x => x.id === id); if(u) u.isActive = !u.isActive; } 
                 else { Object.values(db.users).forEach(u => { if(u.id === id) u.isActive = !u.isActive; }); }
-                admin.save(false);
+                admin.save(false, 'users');
             },
             deleteUser: (id) => {
                 if(confirm("هل أنت متأكد من حذف هذا المشترك؟")) {
                       if(Array.isArray(db.users)) db.users = db.users.filter(x => x.id !== id);
                       else { for(let key in db.users) { if(db.users[key].id === id) { delete db.users[key]; break; } } }
-                    admin.save(false);
+                    admin.save(false, 'users');
                 }
             },
             resetSession: (id) => {
                 let found = false;
                 if(Array.isArray(db.users)) { const u = db.users.find(x => x.id === id); if(u) { u.sessionToken = ''; found=true; } } 
                 else { Object.values(db.users).forEach(u => { if(u.id === id) { u.sessionToken = ''; found=true; } }); }
-                if(found) { admin.save(false).then(() => app.notify("تم تسجيل خروج المستخدم من الأجهزة")); }
+                if(found) { admin.save(false, 'users').then(() => app.notify("تم تسجيل خروج المستخدم من الأجهزة")); }
             },
             addQuiz: (e) => {
                 if(e) e.preventDefault();
@@ -721,25 +751,37 @@
                 if(!n) return app.notify("الاسم مطلوب", "error");
                 if(!db.quizzes) db.quizzes = [];
                 db.quizzes.push({ id: Date.now(), name: n, mode: document.getElementById('adm-mode').value, major: document.getElementById('adm-major').value, minor: document.getElementById('adm-minor').value, questions: [] });
-                admin.save().then(() => {
-                    app.notify("تم إضافة الاختبار");
+                admin.save(true, 'quizzes').then(() => {
                     document.getElementById('new-quiz-name').value = '';
                 });
             },
+            
+            // إضافة السؤال اليدوي الجديد (تم إضافة حقل الصورة)
             addManualQ: (e) => {
                 if(e) e.preventDefault();
                 const qid = document.getElementById('adm-target-quiz').value;
                 const q = db.quizzes.find(x=>x.id==qid);
                 if(!q) return app.notify("اختر اختبار", "error");
                 if(!q.questions) q.questions = [];
-                q.questions.push({ text: document.getElementById('q-text').value, opts: [1,2,3,4].map(i=>document.getElementById('opt'+i).value), correctAnswer: [1,2,3,4].map(i=>document.getElementById('opt'+i).value).indexOf(document.getElementById('q-ans').value) });
-                admin.save().then(() => {
-                    app.notify("تم إضافة السؤال");
+                
+                const imgUrl = document.getElementById('q-image').value.trim();
+                
+                q.questions.push({ 
+                    text: document.getElementById('q-text').value, 
+                    imageUrl: imgUrl || null,
+                    opts: [1,2,3,4].map(i=>document.getElementById('opt'+i).value), 
+                    correctAnswer: [1,2,3,4].map(i=>document.getElementById('opt'+i).value).indexOf(document.getElementById('q-ans').value) 
+                });
+                
+                admin.save(true, 'quizzes').then(() => {
                     document.getElementById('q-text').value = '';
+                    document.getElementById('q-image').value = '';
                     [1,2,3,4].forEach(i=>document.getElementById('opt'+i).value = '');
                     document.getElementById('q-ans').value = '';
                 });
             },
+            
+            // إضافة الأسئلة المجمعة (تم إضافة دعم حقل الصورة)
             processJSON: (e) => {
                 if(e) e.preventDefault();
                 try {
@@ -749,19 +791,26 @@
                     const qid = document.getElementById('adm-target-quiz').value;
                     const q = db.quizzes.find(x=>x.id==qid);
                     if(!q.questions) q.questions = [];
-                    (Array.isArray(data)?data:[data]).forEach(i => q.questions.push({text:i.question, opts:i.options, correctAnswer:i.correctAnswer}));
-                    admin.save().then(() => {
-                        app.notify("تم الاستيراد بنجاح");
+                    
+                    (Array.isArray(data)?data:[data]).forEach(i => q.questions.push({
+                        text: i.question, 
+                        imageUrl: i.imageUrl || i.image || null,
+                        opts: i.options, 
+                        correctAnswer: i.correctAnswer
+                    }));
+                    
+                    admin.save(true, 'quizzes').then(() => {
                         document.getElementById('json-input').value = '';
+                        app.notify("تم الاستيراد بنجاح");
                     });
                 } catch(e) { app.notify("تأكد من صيغة الملف (JSON Array)", "error"); }
             },
+            
             addFile: (e) => {
                 if(e) e.preventDefault();
                 if(!db.files) db.files = [];
                 db.files.push({ id: Date.now(), name: document.getElementById('file-name').value, url: document.getElementById('file-url').value, mode: document.getElementById('file-mode').value, major: document.getElementById('file-major').value, minor: document.getElementById('file-minor').value });
-                admin.save().then(() => {
-                    app.notify("تم إضافة الملف");
+                admin.save(true, 'files').then(() => {
                     document.getElementById('file-name').value = '';
                     document.getElementById('file-url').value = '';
                 });
@@ -784,8 +833,7 @@
                     linkedQuizId: document.getElementById('lesson-linked-quiz').value || null
                 });
                 
-                admin.save().then(() => {
-                    app.notify("تم حفظ الشرح بنجاح ✅");
+                admin.save(true, 'lessons').then(() => {
                     document.getElementById('lesson-title').value = '';
                     document.getElementById('lesson-content').value = '';
                     document.getElementById('lesson-quiz-search').value = '';
@@ -820,9 +868,8 @@
                     l.title = title;
                     l.content = content;
                     l.linkedQuizId = linkedQuiz || null;
-                    admin.save().then(() => {
+                    admin.save(true, 'lessons').then(() => {
                         document.getElementById('edit-lesson-modal').classList.add('hidden');
-                        app.notify("تم تعديل الدرس بنجاح ✅");
                     });
                 }
             },
@@ -832,8 +879,7 @@
                 if(!name) return app.notify("اسم المحاكي مطلوب", "error");
                 if(!db.simulations) db.simulations = [];
                 db.simulations.push({ id: Date.now(), name: name, mode: document.getElementById('new-sim-mode').value, targetMajor: document.getElementById('new-sim-major').value, time: parseInt(document.getElementById('ns-time').value) || 60, counts: { spec: parseInt(document.getElementById('ns-spec').value)||0, ped: parseInt(document.getElementById('ns-ped').value)||0, comp: parseInt(document.getElementById('ns-comp').value)||0, iq: parseInt(document.getElementById('ns-iq').value)||0, ar: parseInt(document.getElementById('ns-ar').value)||0, en: parseInt(document.getElementById('ns-en').value)||0, cs: parseInt(document.getElementById('ns-cs').value)||0, gen: parseInt(document.getElementById('ns-gen').value)||0 } });
-                admin.save().then(() => {
-                    app.notify("تم إنشاء المحاكي بنجاح");
+                admin.save(true, 'simulations').then(() => {
                     document.getElementById('new-sim-name').value = '';
                 });
             },
@@ -848,8 +894,9 @@
                 if(confirm(`هل أنت متأكد من حذف ${checked.length} اختبار؟`)) {
                     const idsToDelete = Array.from(checked).map(c => c.value);
                     db.quizzes = db.quizzes.filter(q => !idsToDelete.includes(q.id.toString()));
-                    admin.save();
-                    document.getElementById('bulk-delete-btn').classList.add('hidden');
+                    admin.save(true, 'quizzes').then(() => {
+                        document.getElementById('bulk-delete-btn').classList.add('hidden');
+                    });
                 }
             },
             renderTree: () => {
@@ -896,7 +943,9 @@
                                 const locked = q.mode === 'subscriber';
                                 let questionsHtml = '';
                                 (q.questions || []).forEach((sq, i) => {
-                                    questionsHtml += ` <div class="flex justify-between items-center bg-white p-2 rounded border border-slate-100 shadow-sm mt-1"> <span class="text-xs font-bold text-slate-600 truncate w-3/4">${i+1}. ${sq.text}</span> <div class="flex gap-1"> <button type="button" onclick="admin.editQ(${q.id}, ${i})" class="text-xs text-emerald-500 p-1 hover:bg-emerald-50 rounded"><i class="fas fa-edit"></i></button> <button type="button" onclick="admin.delQ(${q.id}, ${i})" class="text-xs text-red-500 p-1 hover:bg-red-50 rounded"><i class="fas fa-trash"></i></button> </div> </div>`;
+                                    // إضافة أيقونة الصورة إذا كان السؤال يحتوي عليها
+                                    const imgIcon = sq.imageUrl ? '<i class="fas fa-image text-blue-500 ml-1" title="يحتوي على صورة"></i>' : '';
+                                    questionsHtml += ` <div class="flex justify-between items-center bg-white p-2 rounded border border-slate-100 shadow-sm mt-1"> <span class="text-xs font-bold text-slate-600 truncate w-3/4">${i+1}. ${sq.text} ${imgIcon}</span> <div class="flex gap-1"> <button type="button" onclick="admin.editQ(${q.id}, ${i})" class="text-xs text-emerald-500 p-1 hover:bg-emerald-50 rounded"><i class="fas fa-edit"></i></button> <button type="button" onclick="admin.delQ(${q.id}, ${i})" class="text-xs text-red-500 p-1 hover:bg-red-50 rounded"><i class="fas fa-trash"></i></button> </div> </div>`;
                                 });
                                 const qDetailsId = `q-det-${q.id}`; const isQOpen = openIds.has(qDetailsId);
                                 fullHtml += ` <div class="bg-white p-3 rounded-lg border shadow-sm relative"> <div class="absolute top-3 left-3 flex gap-2"> <input type="checkbox" class="q-select w-5 h-5 accent-red-500 cursor-pointer" value="${q.id}" onchange="admin.toggleBulkSelect()"> </div> <div class="flex flex-col md:flex-row justify-between items-center gap-2 pl-8"> <div class="flex items-center gap-2"> <span class="text-[10px] font-bold ${locked?'bg-red-100 text-red-600':'bg-green-100 text-green-600'} px-2 py-1 rounded-lg">${locked?'مغلق':'مفتوح'}</span> <h5 class="font-bold text-slate-800">${q.name}</h5> <span class="text-[10px] text-slate-400">(${q.minor})</span> <button type="button" onclick="admin.openRenameModal(${q.id})" class="text-slate-400 hover:text-blue-600 transition-colors" title="تعديل الاسم"><i class="fas fa-pen text-xs"></i></button> </div> <div class="flex gap-2"> <button type="button" onclick="admin.toggleQs('${qDetailsId}')" class="text-xs bg-blue-50 text-blue-600 px-3 py-2 rounded-lg font-bold border border-blue-100 hover:bg-blue-100">الأسئلة (${q.questions?.length||0})</button> 
@@ -938,22 +987,88 @@
                 let list = type==='quiz'?db.quizzes : type==='file'?db.files : type==='lesson'?db.lessons : db.simulations;
                 let item = list.find(x=>x.id===id);
                 item.mode = item.mode==='visitor'?'subscriber':'visitor';
-                admin.save();
+                const nodeName = type==='quiz'?'quizzes':type==='file'?'files':type==='lesson'?'lessons':'simulations';
+                admin.save(true, nodeName);
             },
             openRenameModal: (qid) => { const q = db.quizzes.find(x=>x.id==qid); document.getElementById('edit-name-qid').value = qid; document.getElementById('new-quiz-name-input').value = q.name; document.getElementById('edit-quiz-name-modal').classList.remove('hidden'); },
-            saveQuizName: (e) => { if(e) e.preventDefault(); const qid = document.getElementById('edit-name-qid').value; const newName = document.getElementById('new-quiz-name-input').value; if(!newName) return app.notify("الاسم لا يمكن أن يكون فارغاً", "error"); const q = db.quizzes.find(x=>x.id==qid); q.name = newName; admin.save().then(() => { document.getElementById('edit-quiz-name-modal').classList.add('hidden'); app.notify("تم تحديث اسم الاختبار"); }); },
-            editQ: (qid, idx) => { const q = db.quizzes.find(x=>x.id==qid).questions[idx]; document.getElementById('edit-qid').value = qid; document.getElementById('edit-idx').value = idx; document.getElementById('eq-text').value = q.text; [0,1,2,3].forEach(i => document.getElementById('eq-o'+i).value = q.opts[i]); document.getElementById('eq-ans').value = q.correctAnswer; document.getElementById('edit-q-modal').classList.remove('hidden'); },
-            saveQuestionEdit: (e) => { if(e) e.preventDefault(); const qid = document.getElementById('edit-qid').value; const idx = document.getElementById('edit-idx').value; const q = db.quizzes.find(x=>x.id==qid); q.questions[idx] = { text: document.getElementById('eq-text').value, opts: [0,1,2,3].map(i=>document.getElementById('eq-o'+i).value), correctAnswer: parseInt(document.getElementById('eq-ans').value) }; admin.save().then(() => { document.getElementById('edit-q-modal').classList.add('hidden'); app.notify("تم التعديل"); }); },
-            delItem: (type, id) => { if(!confirm("تأكيد الحذف؟")) return; if(type==='quiz') db.quizzes = db.quizzes.filter(x=>x.id!=id); else if(type==='file') db.files = db.files.filter(x=>x.id!=id); else if(type==='lesson') db.lessons = db.lessons.filter(x=>x.id!=id); else db.simulations = db.simulations.filter(x=>x.id!=id); admin.save(); },
-            delQ: (qid, idx) => { if(!confirm("حذف السؤال نهائياً؟")) return; const q = db.quizzes.find(x=>x.id==qid); q.questions.splice(idx, 1); admin.save(); },
+            saveQuizName: (e) => { 
+                if(e) e.preventDefault(); 
+                const qid = document.getElementById('edit-name-qid').value; 
+                const newName = document.getElementById('new-quiz-name-input').value; 
+                if(!newName) return app.notify("الاسم لا يمكن أن يكون فارغاً", "error"); 
+                const q = db.quizzes.find(x=>x.id==qid); 
+                q.name = newName; 
+                admin.save(true, 'quizzes').then(() => { 
+                    document.getElementById('edit-quiz-name-modal').classList.add('hidden'); 
+                }); 
+            },
+            
+            // تعديل السؤال (استرجاع الصورة)
+            editQ: (qid, idx) => { 
+                const q = db.quizzes.find(x=>x.id==qid).questions[idx]; 
+                document.getElementById('edit-qid').value = qid; 
+                document.getElementById('edit-idx').value = idx; 
+                document.getElementById('eq-text').value = q.text; 
+                document.getElementById('eq-image').value = q.imageUrl || ''; // ملء حقل الصورة إذا وجدت
+                [0,1,2,3].forEach(i => document.getElementById('eq-o'+i).value = q.opts[i]); 
+                document.getElementById('eq-ans').value = q.correctAnswer; 
+                document.getElementById('edit-q-modal').classList.remove('hidden'); 
+            },
+            
+            // حفظ تعديل السؤال (مع الصورة)
+            saveQuestionEdit: (e) => { 
+                if(e) e.preventDefault(); 
+                const qid = document.getElementById('edit-qid').value; 
+                const idx = document.getElementById('edit-idx').value; 
+                const q = db.quizzes.find(x=>x.id==qid); 
+                
+                const imgUrl = document.getElementById('eq-image').value.trim();
+                
+                q.questions[idx] = { 
+                    text: document.getElementById('eq-text').value, 
+                    imageUrl: imgUrl || null,
+                    opts: [0,1,2,3].map(i=>document.getElementById('eq-o'+i).value), 
+                    correctAnswer: parseInt(document.getElementById('eq-ans').value) 
+                }; 
+                admin.save(true, 'quizzes').then(() => { 
+                    document.getElementById('edit-q-modal').classList.add('hidden'); 
+                }); 
+            },
+            
+            delItem: (type, id) => { 
+                if(!confirm("تأكيد الحذف؟")) return; 
+                let nodeName = 'quizzes';
+                if(type==='quiz') { db.quizzes = db.quizzes.filter(x=>x.id!=id); nodeName = 'quizzes'; }
+                else if(type==='file') { db.files = db.files.filter(x=>x.id!=id); nodeName = 'files'; }
+                else if(type==='lesson') { db.lessons = db.lessons.filter(x=>x.id!=id); nodeName = 'lessons'; }
+                else { db.simulations = db.simulations.filter(x=>x.id!=id); nodeName = 'simulations'; }
+                admin.save(true, nodeName); 
+            },
+            delQ: (qid, idx) => { if(!confirm("حذف السؤال نهائياً؟")) return; const q = db.quizzes.find(x=>x.id==qid); q.questions.splice(idx, 1); admin.save(true, 'quizzes'); },
             nuke: () => { if(confirm("تحذير: هذا سيحذف كل شيء!")) { db={quizzes:[],files:[],simulations:[],settings:db.settings,users:[], majors:db.majors, majorConfigs:{}, lessons:[], lastUpdated:Date.now()}; admin.save(); } },
             
-            // الدالة المعدلة لمنع التكرار والتأكد من إرسال البيانات
-            save: (isContentChange = true) => {
+            save: (isContentChange = true, nodeToSave = null) => {
+                app.notify("تم الحفظ (جاري الرفع...)", "loading", true);
+                
                 if (isContentChange) {
                     db.lastUpdated = Date.now();
+                    dbRef.child('lastUpdated').set(db.lastUpdated); 
                 }
-                return dbRef.set(db); // إرجاع وعد (Promise) للتأكد من وصول البيانات
+                
+                admin.refreshUI(); 
+
+                let savePromise;
+                if (nodeToSave) {
+                    savePromise = dbRef.child(nodeToSave).set(db[nodeToSave]);
+                } else {
+                    savePromise = dbRef.set(db);
+                }
+
+                return savePromise.then(() => {
+                    app.notify("تم بنجاح ✅", "success");
+                }).catch(err => {
+                    app.notify("حدث خطأ في الاتصال", "error");
+                });
             }
         };
         app.init();
