@@ -71,7 +71,6 @@
     </div> 
     <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> <button type="button" onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> <button type="button" onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> <button type="button" onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> <button type="button" onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> <button type="button" onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button> <button type="button" onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> <button type="button" onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
     </div> 
-    
     <div id="tab-settings" class="adm-tab active block bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100"> 
      <h3 class="font-black text-xl mb-6 text-emerald-700 border-r-4 border-emerald-500 pr-3">إعدادات النصوص والروابط</h3> 
      <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> 
@@ -128,7 +127,6 @@
      <div class="mt-6"> <label class="text-xs font-bold text-slate-400">تعليمات الصفحة الرئيسية:</label> <textarea id="set-tutorial" class="w-full border p-3 rounded-2xl h-24 font-bold bg-slate-50 text-slate-700"></textarea> 
      </div> <button type="button" onclick="admin.saveSettings(event)" class="w-full bg-emerald-600 text-white py-4 rounded-2xl mt-6 font-black shadow-lg hover:bg-emerald-700 transition-all">حفظ الإعدادات ✅</button> 
     </div> 
-    
     <div id="tab-majors" class="adm-tab space-y-6"> 
      <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-orange-500"> 
       <h4 class="font-black text-2xl mb-4 text-orange-800 flex items-center gap-2"> <i class="fas fa-plus-circle"></i> إضافة قسم جديد </h4> 
@@ -159,7 +157,6 @@
       </div> 
      </div> 
     </div> 
-    
     <div id="tab-users" class="adm-tab space-y-6"> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-emerald-500"> 
       <h4 class="font-black text-lg mb-4 text-emerald-800"><i class="fas fa-user-plus"></i> إضافة مشترك جديد</h4> 
@@ -193,7 +190,6 @@
       </div> 
      </div> 
     </div> 
-    
     <div id="tab-create" class="adm-tab space-y-6"> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-blue-600"> 
       <h4 class="font-black text-lg mb-4 text-blue-800">1. إنشاء اختبار جديد</h4> 
@@ -207,20 +203,14 @@
        <input id="new-quiz-name" placeholder="اسم الاختبار" class="flex-1 border-2 p-3 rounded-xl font-bold"> <button type="button" onclick="admin.addQuiz(event)" class="bg-blue-600 text-white px-6 rounded-xl font-black">إنشاء</button> 
       </div> 
      </div> 
-     
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-purple-600"> 
       <h4 class="font-black text-lg mb-4 text-purple-800">2. إضافة الأسئلة</h4> <select id="adm-target-quiz" class="w-full border-2 p-3 rounded-xl font-bold bg-purple-50 mb-4"></select> 
       <div class="flex gap-2 mb-4"> <button type="button" onclick="document.getElementById('add-manual').classList.remove('hidden');document.getElementById('add-bulk').classList.add('hidden')" class="flex-1 bg-purple-600 text-white py-2 rounded-xl font-bold">يدوي</button> <button type="button" onclick="document.getElementById('add-bulk').classList.remove('hidden');document.getElementById('add-manual').classList.add('hidden')" class="flex-1 bg-slate-200 text-slate-700 py-2 rounded-xl font-bold">مجمع (JSON)</button> 
       </div> 
-      
-      <div id="add-manual" class="space-y-3"> 
-       <textarea id="q-text" placeholder="نص السؤال" class="w-full border p-3 rounded-xl h-20 font-bold"></textarea> 
-       
-       <div class="relative">
-           <i class="fas fa-image absolute top-4 left-4 text-slate-400"></i>
-           <input id="q-image" placeholder="رابط صورة توضيحية للسؤال (اختياري) - مفيد للـ IQ" class="w-full border p-3 pl-10 rounded-xl font-bold text-left text-sm text-blue-600 bg-blue-50/30" dir="ltr"> 
-       </div>
-
+      <div id="add-manual" class="space-y-3"> <textarea id="q-text" placeholder="نص السؤال" class="w-full border p-3 rounded-xl h-20 font-bold"></textarea> 
+       <div class="relative"> <i class="fas fa-image absolute top-4 left-4 text-slate-400"></i> 
+        <input id="q-image" placeholder="رابط صورة توضيحية للسؤال (اختياري) - مفيد للـ IQ" class="w-full border p-3 pl-10 rounded-xl font-bold text-left text-sm text-blue-600 bg-blue-50/30" dir="ltr"> 
+       </div> 
        <div class="grid grid-cols-2 gap-2"> 
         <input id="opt1" placeholder="أ" class="border p-2 rounded-lg font-bold"> 
         <input id="opt2" placeholder="ب" class="border p-2 rounded-lg font-bold"> 
@@ -229,12 +219,10 @@
        </div> 
        <input id="q-ans" placeholder="الإجابة الصحيحة (اكتب النص كاملاً)" class="w-full border bg-emerald-50 p-3 rounded-xl font-bold text-center"> <button type="button" onclick="admin.addManualQ(event)" class="w-full bg-purple-600 text-white py-3 rounded-xl font-black shadow-lg">حفظ السؤال</button> 
       </div> 
-      
       <div id="add-bulk" class="hidden space-y-3"> 
        <p class="text-[10px] font-bold text-slate-500">يمكنك تضمين حقل <code>"imageUrl": "رابط الصورة"</code> إذا كان السؤال يحتاج صورة.</p> <textarea id="json-input" class="w-full bg-slate-900 text-green-400 font-mono p-4 rounded-xl h-32 text-xs" dir="ltr"></textarea> <button type="button" onclick="admin.processJSON(event)" class="w-full bg-slate-800 text-white py-3 rounded-xl font-black">استيراد</button> 
       </div> 
      </div> 
-     
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-red-600"> 
       <h4 class="font-black text-lg mb-4 text-red-700">3. إضافة ملفات</h4> 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4"> <select id="file-mode" class="border p-3 rounded-xl font-bold"><option value="visitor">🔓 مفتوح</option><option value="subscriber">🔒 للمشتركين</option></select> <select id="file-major" class="border p-3 rounded-xl font-bold text-red-600"></select> <select id="file-minor" class="border p-3 rounded-xl font-bold"></select> 
@@ -243,7 +231,6 @@
       <input id="file-url" placeholder="الرابط" class="w-full border p-3 rounded-xl font-bold mb-2 text-left" dir="ltr"> <button type="button" onclick="admin.addFile(event)" class="w-full bg-red-600 text-white py-3 rounded-xl font-black">حفظ الملف</button> 
      </div> 
     </div> 
-    
     <div id="tab-lessons" class="adm-tab space-y-6"> 
      <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-indigo-600"> 
       <h4 class="font-black text-2xl mb-4 text-indigo-800 flex items-center gap-2"><i class="fas fa-book-reader"></i> إضافة درس / شرح جديد</h4> 
@@ -268,7 +255,6 @@
       </div> 
      </div> 
     </div> 
-    
     <div id="tab-simulation" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm border border-yellow-400"> 
      <h3 class="font-black text-xl mb-6 text-slate-800">⚙️ إنشاء اختبار محاكي جديد</h3> 
      <p class="text-sm font-bold text-blue-600 mb-4 bg-blue-50 p-2 rounded">ملاحظة: جميع المحاكيات تظهر في قسم خاص للمستخدم باسم "محاكيات التنظيم والإدارة".</p> 
@@ -312,7 +298,6 @@
       </div> 
      </div> <button type="button" onclick="admin.createSimulation(event)" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black">إضافة المحاكي</button> 
     </div> 
-    
     <div id="tab-manage" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm"> 
      <div class="flex justify-between items-center mb-6 pb-4 border-b"> 
       <h3 class="font-black text-xl text-slate-800">إدارة المحتوى الكاملة</h3> <button type="button" onclick="admin.nuke()" class="text-red-500 font-bold border border-red-200 px-3 py-1 rounded-xl text-xs hover:bg-red-50">حذف المصنع ⚠️</button> 
@@ -323,19 +308,14 @@
     </div> 
    </div> 
   </div> 
-
   <div id="edit-q-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-lg space-y-4 shadow-2xl"> 
     <h3 class="font-black text-xl text-center">تعديل السؤال</h3> 
     <input type="hidden" id="edit-qid"> 
-    <input type="hidden" id="edit-idx"> 
-    <textarea id="eq-text" class="w-full border p-4 rounded-xl h-24 font-bold text-lg"></textarea> 
-    
-    <div class="relative">
-        <i class="fas fa-image absolute top-4 left-4 text-slate-400"></i>
-        <input id="eq-image" placeholder="رابط صورة توضيحية للسؤال (اختياري)" class="w-full border p-3 pl-10 rounded-xl font-bold text-left text-sm text-blue-600 bg-blue-50/30" dir="ltr"> 
-    </div>
-
+    <input type="hidden" id="edit-idx"> <textarea id="eq-text" class="w-full border p-4 rounded-xl h-24 font-bold text-lg"></textarea> 
+    <div class="relative"> <i class="fas fa-image absolute top-4 left-4 text-slate-400"></i> 
+     <input id="eq-image" placeholder="رابط صورة توضيحية للسؤال (اختياري)" class="w-full border p-3 pl-10 rounded-xl font-bold text-left text-sm text-blue-600 bg-blue-50/30" dir="ltr"> 
+    </div> 
     <div class="grid grid-cols-2 gap-3"> 
      <input id="eq-o0" class="border p-3 rounded-lg font-bold"> 
      <input id="eq-o1" class="border p-3 rounded-lg font-bold"> 
@@ -349,7 +329,6 @@
     </div> 
    </div> 
   </div> 
-
   <div id="edit-quiz-name-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-sm space-y-4 shadow-2xl"> 
     <h3 class="font-black text-xl text-center text-blue-800">تغيير اسم الاختبار</h3> 
@@ -359,7 +338,6 @@
     </div> 
    </div> 
   </div> 
-
   <div id="clone-quiz-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-sm space-y-4 shadow-2xl"> 
     <h3 class="font-black text-xl text-center text-orange-600">نسخ الاختبار</h3> 
@@ -369,7 +347,6 @@
     </div> 
    </div> 
   </div> 
-
   <div id="edit-lesson-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-2xl space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto"> 
     <h3 class="font-black text-xl text-center text-indigo-800">تعديل الدرس / الشرح</h3> 
@@ -386,16 +363,15 @@
     </div> 
    </div> 
   </div> 
-
   <script>
         const firebaseConfig = {
-              apiKey: "AIzaSyBpitoHdTQLLZoHMed_0HZyexjcleSZfEc",
-              authDomain: "egtaz-86d85.firebaseapp.com",
-              databaseURL: "https://egtaz-86d85-default-rtdb.firebaseio.com",
-              projectId: "egtaz-86d85",
-              storageBucket: "egtaz-86d85.firebasestorage.app",
-              messagingSenderId: "623187146226",
-              appId: "1:623187146226:web:6e41d0d95515543934e76b"
+              apiKey: "AIzaSyDJh6w5qry-RtWJoFHA4nbcaORs3D6JFxg",
+              authDomain: "egtazsh2.firebaseapp.com",
+              databaseURL: "https://egtazsh2-default-rtdb.firebaseio.com",
+              projectId: "egtazsh2",
+              storageBucket: "egtazsh2.firebasestorage.app",
+              messagingSenderId: "408813588788",
+              appId: "1:408813588788:web:8729b0681a84fa6964d561"
         };
 
         firebase.initializeApp(firebaseConfig);
