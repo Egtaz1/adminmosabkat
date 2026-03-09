@@ -78,19 +78,8 @@
      <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm"> <span class="block text-3xl font-black text-yellow-400" id="visitor-counter">0</span> <span class="text-xs font-bold">إجمالي الزيارات</span> 
      </div> 
     </div> 
-    
-    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> 
-        <button type="button" onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> 
-        <button type="button" onclick="admin.switchTab('announcements')" class="tab-btn bg-white text-blue-600 border-2 border-blue-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📢 إعلانات المنصة</button>
-        <button type="button" onclick="admin.switchTab('reviews')" class="tab-btn bg-white text-yellow-600 border-2 border-yellow-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">⭐ التقييمات</button>
-        <button type="button" onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> 
-        <button type="button" onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> 
-        <button type="button" onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> 
-        <button type="button" onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button> 
-        <button type="button" onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> 
-        <button type="button" onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
+    <div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar justify-start md:justify-center px-1"> <button type="button" onclick="admin.switchTab('settings')" class="tab-btn active bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🛠️ الإعدادات</button> <button type="button" onclick="admin.switchTab('announcements')" class="tab-btn bg-white text-blue-600 border-2 border-blue-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📢 إعلانات المنصة</button> <button type="button" onclick="admin.switchTab('reviews')" class="tab-btn bg-white text-yellow-600 border-2 border-yellow-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">⭐ التقييمات</button> <button type="button" onclick="admin.switchTab('majors')" class="tab-btn bg-white text-orange-600 border-2 border-orange-500 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة الأقسام</button> <button type="button" onclick="admin.switchTab('users')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-emerald-100">👥 المشتركين</button> <button type="button" onclick="admin.switchTab('create')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📝 إنشاء اختبار</button> <button type="button" onclick="admin.switchTab('lessons')" class="tab-btn bg-white text-indigo-600 border-2 border-indigo-200 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">📚 قسم الشرح</button> <button type="button" onclick="admin.switchTab('simulation')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow border-2 border-yellow-200">⚙️ إنشاء محاكي</button> <button type="button" onclick="admin.switchTab('manage')" class="tab-btn bg-white text-slate-600 px-6 py-3 rounded-2xl font-black text-sm whitespace-nowrap shadow">🗂️ إدارة وتعديل</button> 
     </div> 
-    
     <div id="tab-settings" class="adm-tab active block bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100"> 
      <h3 class="font-black text-xl mb-6 text-emerald-700 border-r-4 border-emerald-500 pr-3">إعدادات النصوص والروابط</h3> 
      <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> 
@@ -147,53 +136,41 @@
      <div class="mt-6"> <label class="text-xs font-bold text-slate-400">تعليمات الصفحة الرئيسية:</label> <textarea id="set-tutorial" class="w-full border p-3 rounded-2xl h-24 font-bold bg-slate-50 text-slate-700"></textarea> 
      </div> <button type="button" onclick="admin.saveSettings(event)" class="w-full bg-emerald-600 text-white py-4 rounded-2xl mt-6 font-black shadow-lg hover:bg-emerald-700 transition-all">حفظ الإعدادات ✅</button> 
     </div> 
-
-    <div id="tab-announcements" class="adm-tab bg-white p-8 rounded-[2rem] shadow-sm border border-blue-200">
-        <h3 class="font-black text-2xl mb-4 text-blue-800 border-r-4 border-blue-500 pr-3 flex items-center gap-2"><i class="fas fa-bullhorn"></i> إعلانات وتحديثات المنصة</h3>
-        <p class="text-slate-500 font-bold text-sm mb-6">هذا الإعلان سيظهر في نافذة منبثقة (Popup) ترحيبية للطلاب عند دخولهم للمنصة ليخبرهم بآخر التحديثات.</p>
-        <div class="space-y-6">
-            <div>
-                <label class="block text-sm font-bold text-slate-700 mb-2">نص الإعلان أو التحديث المكتوب:</label>
-                <textarea id="ann-text" rows="4" class="w-full border-2 border-blue-100 rounded-xl p-4 font-bold focus:border-blue-500 outline-none bg-blue-50/30" placeholder="مثال: تم إضافة 5 محاكيات جديدة لقسم الدراسات..."></textarea>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-2">مدة عرض الإعلان (بالأيام):</label>
-                    <input type="number" id="ann-expiry" value="3" class="w-full border-2 border-slate-200 rounded-xl p-3 font-bold focus:border-blue-500 outline-none">
-                    <p class="text-[10px] text-slate-400 mt-1 font-bold">بعد هذه المدة سيختفي الإعلان تلقائياً.</p>
-                </div>
-                <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" id="ann-active" class="sr-only peer">
-                        <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                        <span class="mr-3 text-sm font-black text-slate-700">تفعيل ظهور الإعلان للطلاب</span>
-                    </label>
-                </div>
-            </div>
-            <button onclick="admin.saveAnnouncement()" class="w-full bg-blue-600 text-white px-8 py-4 rounded-xl font-black hover:bg-blue-700 transition-colors shadow-lg"><i class="fas fa-save ml-2"></i> حفظ ونشر الإعلان</button>
-        </div>
-    </div>
-
-    <div id="tab-reviews" class="adm-tab space-y-6">
-        <div class="flex justify-between items-center mb-2 px-2">
-            <div>
-                <h2 class="text-2xl font-black text-slate-800"><i class="fas fa-star text-yellow-500 ml-2"></i> إدارة التقييمات وآراء الطلاب</h2>
-                <p class="text-slate-500 font-bold text-sm mt-1">التعليقات المنشورة ستظهر في الصفحة الرئيسية للمنصة.</p>
-            </div>
-            <button onclick="document.getElementById('manual-review-modal').classList.remove('hidden')" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-black hover:bg-black transition-colors shadow-lg"><i class="fas fa-plus ml-2"></i> إضافة تقييم يدوي</button>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100">
-                <h3 class="font-black text-lg text-slate-800 mb-4 flex items-center gap-2 border-b pb-2"><i class="fas fa-hourglass-half text-orange-500"></i> بانتظار المراجعة</h3>
-                <div id="reviews-pending-list" class="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar"></div>
-            </div>
-            <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100">
-                <h3 class="font-black text-lg text-slate-800 mb-4 flex items-center gap-2 border-b pb-2"><i class="fas fa-check-circle text-emerald-500"></i> التقييمات المنشورة</h3>
-                <div id="reviews-approved-list" class="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar"></div>
-            </div>
-        </div>
-    </div>
-    
+    <div id="tab-announcements" class="adm-tab bg-white p-8 rounded-[2rem] shadow-sm border border-blue-200"> 
+     <h3 class="font-black text-2xl mb-4 text-blue-800 border-r-4 border-blue-500 pr-3 flex items-center gap-2"><i class="fas fa-bullhorn"></i> إعلانات وتحديثات المنصة</h3> 
+     <p class="text-slate-500 font-bold text-sm mb-6">هذا الإعلان سيظهر في نافذة منبثقة (Popup) ترحيبية للطلاب عند دخولهم للمنصة ليخبرهم بآخر التحديثات.</p> 
+     <div class="space-y-6"> 
+      <div> <label class="block text-sm font-bold text-slate-700 mb-2">نص الإعلان أو التحديث المكتوب:</label> <textarea id="ann-text" rows="4" class="w-full border-2 border-blue-100 rounded-xl p-4 font-bold focus:border-blue-500 outline-none bg-blue-50/30" placeholder="مثال: تم إضافة 5 محاكيات جديدة لقسم الدراسات..."></textarea> 
+      </div> 
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> 
+       <div> <label class="block text-sm font-bold text-slate-700 mb-2">مدة عرض الإعلان (بالأيام):</label> 
+        <input type="number" id="ann-expiry" value="3" class="w-full border-2 border-slate-200 rounded-xl p-3 font-bold focus:border-blue-500 outline-none"> 
+        <p class="text-[10px] text-slate-400 mt-1 font-bold">بعد هذه المدة سيختفي الإعلان تلقائياً.</p> 
+       </div> 
+       <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200"> <label class="relative inline-flex items-center cursor-pointer"> <input type="checkbox" id="ann-active" class="sr-only peer"> 
+         <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div> <span class="mr-3 text-sm font-black text-slate-700">تفعيل ظهور الإعلان للطلاب</span> </label> 
+       </div> 
+      </div> <button onclick="admin.saveAnnouncement()" class="w-full bg-blue-600 text-white px-8 py-4 rounded-xl font-black hover:bg-blue-700 transition-colors shadow-lg"><i class="fas fa-save ml-2"></i> حفظ ونشر الإعلان</button> 
+     </div> 
+    </div> 
+    <div id="tab-reviews" class="adm-tab space-y-6"> 
+     <div class="flex justify-between items-center mb-2 px-2"> 
+      <div> 
+       <h2 class="text-2xl font-black text-slate-800"><i class="fas fa-star text-yellow-500 ml-2"></i> إدارة التقييمات وآراء الطلاب</h2> 
+       <p class="text-slate-500 font-bold text-sm mt-1">التعليقات المنشورة ستظهر في الصفحة الرئيسية للمنصة.</p> 
+      </div> <button onclick="document.getElementById('manual-review-modal').classList.remove('hidden')" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-black hover:bg-black transition-colors shadow-lg"><i class="fas fa-plus ml-2"></i> إضافة تقييم يدوي</button> 
+     </div> 
+     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"> 
+      <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100"> 
+       <h3 class="font-black text-lg text-slate-800 mb-4 flex items-center gap-2 border-b pb-2"><i class="fas fa-hourglass-half text-orange-500"></i> بانتظار المراجعة</h3> 
+       <div id="reviews-pending-list" class="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar"></div> 
+      </div> 
+      <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100"> 
+       <h3 class="font-black text-lg text-slate-800 mb-4 flex items-center gap-2 border-b pb-2"><i class="fas fa-check-circle text-emerald-500"></i> التقييمات المنشورة</h3> 
+       <div id="reviews-approved-list" class="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar"></div> 
+      </div> 
+     </div> 
+    </div> 
     <div id="tab-majors" class="adm-tab space-y-6"> 
      <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-orange-500"> 
       <h4 class="font-black text-2xl mb-4 text-orange-800 flex items-center gap-2"> <i class="fas fa-plus-circle"></i> إضافة قسم جديد </h4> 
@@ -219,18 +196,16 @@
       </div> 
      </div> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm"> 
-      <div class="flex justify-between items-center mb-4 border-b pb-2">
-          <h4 class="font-black text-lg text-slate-800">الأقسام المفعلة حالياً</h4>
-      </div>
-      <div class="bg-blue-50 border border-blue-200 text-blue-800 p-3 rounded-xl font-bold text-xs mb-4 flex items-start gap-2">
-          <i class="fas fa-info-circle mt-1"></i>
-          <p>زر التعديل ✏️ يقوم بتغيير اسم القسم بالكامل ونقل كل محتوياته (اختبارات، ملفات، شروحات) للاسم الجديد تلقائياً.</p>
-      </div>
+      <div class="flex justify-between items-center mb-4 border-b pb-2"> 
+       <h4 class="font-black text-lg text-slate-800">الأقسام المفعلة حالياً</h4> 
+      </div> 
+      <div class="bg-blue-50 border border-blue-200 text-blue-800 p-3 rounded-xl font-bold text-xs mb-4 flex items-start gap-2"> <i class="fas fa-info-circle mt-1"></i> 
+       <p>زر التعديل ✏️ يقوم بتغيير اسم القسم بالكامل ونقل كل محتوياته (اختبارات، ملفات، شروحات) للاسم الجديد تلقائياً.</p> 
+      </div> 
       <div id="majors-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> 
       </div> 
      </div> 
     </div> 
-    
     <div id="tab-users" class="adm-tab space-y-6"> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-emerald-500"> 
       <h4 class="font-black text-lg mb-4 text-emerald-800"><i class="fas fa-user-plus"></i> إضافة مشترك جديد</h4> 
@@ -242,24 +217,17 @@
        <input id="new-user-duration" type="number" value="1" class="border p-2 w-20 rounded-xl text-center font-bold"> <select id="new-user-unit" class="border p-2 rounded-xl font-bold bg-slate-50"> <option value="hours">ساعات</option> <option value="days" selected>أيام</option> </select> 
       </div> <button type="button" onclick="admin.addUser(event)" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-black hover:bg-emerald-700 shadow-lg">إنشاء الحساب وتفعيل المدة</button> 
      </div> 
-     
      <div class="bg-white p-6 rounded-[2rem] shadow-sm"> 
       <div class="flex justify-between items-center mb-6"> 
        <h4 class="font-black text-lg text-slate-800">قائمة المشتركين</h4> <span id="users-count" class="bg-slate-100 px-3 py-1 rounded-full text-xs font-bold">0 مشترك</span> 
       </div> 
-      
-      <div class="flex flex-col md:flex-row gap-4 mb-4 items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-200">
-        <div class="relative w-full md:w-1/2">
-            <i class="fas fa-search absolute top-3 right-4 text-slate-400"></i>
-            <input type="text" id="user-search" onkeyup="admin.renderUsers()" placeholder="ابحث باسم المشترك..." class="w-full border-2 border-slate-200 p-2 pr-10 rounded-xl font-bold focus:border-emerald-500 transition-all outline-none">
-        </div>
-        <div class="flex gap-2 w-full md:w-auto">
-            <button type="button" onclick="admin.filterUsers('all')" id="btn-filt-all" class="flex-1 md:flex-none bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold text-sm shadow transition-all">الكل</button>
-            <button type="button" onclick="admin.filterUsers('active')" id="btn-filt-act" class="flex-1 md:flex-none bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all">النشطين</button>
-            <button type="button" onclick="admin.filterUsers('expired')" id="btn-filt-exp" class="flex-1 md:flex-none bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all">المنتهية</button>
-        </div>
-      </div>
-
+      <div class="flex flex-col md:flex-row gap-4 mb-4 items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-200"> 
+       <div class="relative w-full md:w-1/2"> <i class="fas fa-search absolute top-3 right-4 text-slate-400"></i> 
+        <input type="text" id="user-search" onkeyup="admin.renderUsers()" placeholder="ابحث باسم المشترك..." class="w-full border-2 border-slate-200 p-2 pr-10 rounded-xl font-bold focus:border-emerald-500 transition-all outline-none"> 
+       </div> 
+       <div class="flex gap-2 w-full md:w-auto"> <button type="button" onclick="admin.filterUsers('all')" id="btn-filt-all" class="flex-1 md:flex-none bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold text-sm shadow transition-all">الكل</button> <button type="button" onclick="admin.filterUsers('active')" id="btn-filt-act" class="flex-1 md:flex-none bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all">النشطين</button> <button type="button" onclick="admin.filterUsers('expired')" id="btn-filt-exp" class="flex-1 md:flex-none bg-white text-slate-600 border border-slate-200 px-4 py-2 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all">المنتهية</button> 
+       </div> 
+      </div> 
       <div class="overflow-x-auto overflow-y-auto max-h-[500px] border border-slate-200 rounded-xl users-table-container"> 
        <table class="w-full text-right relative"> 
         <thead class="sticky top-0 bg-slate-100 shadow-sm z-10"> 
@@ -278,7 +246,6 @@
       </div> 
      </div> 
     </div> 
-    
     <div id="tab-create" class="adm-tab space-y-6"> 
      <div class="bg-white p-6 rounded-[2rem] shadow-sm border-r-8 border-blue-600"> 
       <h4 class="font-black text-lg mb-4 text-blue-800">1. إنشاء اختبار جديد</h4> 
@@ -320,7 +287,6 @@
       <input id="file-url" placeholder="الرابط" class="w-full border p-3 rounded-xl font-bold mb-2 text-left" dir="ltr"> <button type="button" onclick="admin.addFile(event)" class="w-full bg-red-600 text-white py-3 rounded-xl font-black">حفظ الملف</button> 
      </div> 
     </div> 
-    
     <div id="tab-lessons" class="adm-tab space-y-6"> 
      <div class="bg-white p-8 rounded-[2rem] shadow-sm border-r-8 border-indigo-600"> 
       <h4 class="font-black text-2xl mb-4 text-indigo-800 flex items-center gap-2"><i class="fas fa-book-reader"></i> إضافة درس / شرح جديد</h4> 
@@ -345,7 +311,6 @@
       </div> 
      </div> 
     </div> 
-    
     <div id="tab-simulation" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm border border-yellow-400"> 
      <h3 class="font-black text-xl mb-6 text-slate-800">⚙️ إنشاء اختبار محاكي جديد</h3> 
      <p class="text-sm font-bold text-blue-600 mb-4 bg-blue-50 p-2 rounded">ملاحظة: جميع المحاكيات تظهر في قسم خاص للمستخدم باسم "محاكيات التنظيم والإدارة".</p> 
@@ -389,7 +354,6 @@
       </div> 
      </div> <button type="button" onclick="admin.createSimulation(event)" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black">إضافة المحاكي</button> 
     </div> 
-    
     <div id="tab-manage" class="adm-tab bg-white p-6 rounded-[2rem] shadow-sm"> 
      <div class="flex justify-between items-center mb-6 pb-4 border-b"> 
       <h3 class="font-black text-xl text-slate-800">إدارة المحتوى الكاملة</h3> <button type="button" onclick="admin.nuke()" class="text-red-500 font-bold border border-red-200 px-3 py-1 rounded-xl text-xs hover:bg-red-50">حذف المصنع ⚠️</button> 
@@ -400,22 +364,31 @@
     </div> 
    </div> 
   </div> 
-
-  <div id="manual-review-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-md rounded-[2rem] p-8 shadow-2xl modal-animate border-4 border-white">
-        <h3 class="text-xl font-black text-slate-800 mb-6 text-center text-yellow-600"><i class="fas fa-star"></i> إضافة تقييم يدوي</h3>
-        <div class="space-y-4">
-            <div><label class="block text-sm font-bold mb-1">اسم الطالب:</label><input type="text" id="manual-rev-name" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"></div>
-            <div><label class="block text-sm font-bold mb-1">نص التقييم (رأيه في المنصة):</label><textarea id="manual-rev-text" rows="3" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"></textarea></div>
-            <div class="flex gap-4">
-                <div class="flex-1"><label class="block text-sm font-bold mb-1">عدد النجوم:</label><select id="manual-rev-stars" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"><option value="5">⭐⭐⭐⭐⭐ (5)</option><option value="4">⭐⭐⭐⭐ (4)</option><option value="3">⭐⭐⭐ (3)</option></select></div>
-                <div class="flex-1 flex flex-col justify-end"><label class="flex items-center gap-2 bg-yellow-50 p-3 rounded-xl border border-yellow-200 cursor-pointer"><input type="checkbox" id="manual-rev-vip" checked class="w-5 h-5 rounded text-yellow-500"><span class="font-bold text-sm text-yellow-700">شارة 👑 VIP</span></label></div>
-            </div>
-        </div>
-        <div class="mt-8 flex gap-3"><button onclick="admin.addManualReview()" class="flex-1 bg-yellow-500 text-slate-900 font-black py-3 rounded-xl hover:bg-yellow-400">حفظ ونشر فوراً</button><button onclick="document.getElementById('manual-review-modal').classList.add('hidden')" class="px-6 bg-slate-100 text-slate-600 font-bold py-3 rounded-xl hover:bg-slate-200">إلغاء</button></div>
-    </div>
-  </div>
-  
+  <div id="manual-review-modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur z-50 hidden flex items-center justify-center p-4"> 
+   <div class="bg-white w-full max-w-md rounded-[2rem] p-8 shadow-2xl modal-animate border-4 border-white"> 
+    <h3 class="text-xl font-black text-slate-800 mb-6 text-center text-yellow-600"><i class="fas fa-star"></i> إضافة تقييم يدوي</h3> 
+    <div class="space-y-4"> 
+     <div>
+      <label class="block text-sm font-bold mb-1">اسم الطالب:</label>
+      <input type="text" id="manual-rev-name" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500">
+     </div> 
+     <div>
+      <label class="block text-sm font-bold mb-1">نص التقييم (رأيه في المنصة):</label><textarea id="manual-rev-text" rows="3" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"></textarea>
+     </div> 
+     <div class="flex gap-4"> 
+      <div class="flex-1">
+       <label class="block text-sm font-bold mb-1">عدد النجوم:</label><select id="manual-rev-stars" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"><option value="5">⭐⭐⭐⭐⭐ (5)</option><option value="4">⭐⭐⭐⭐ (4)</option><option value="3">⭐⭐⭐ (3)</option></select>
+      </div> 
+      <div class="flex-1 flex flex-col justify-end">
+       <label class="flex items-center gap-2 bg-yellow-50 p-3 rounded-xl border border-yellow-200 cursor-pointer"><input type="checkbox" id="manual-rev-vip" checked class="w-5 h-5 rounded text-yellow-500"><span class="font-bold text-sm text-yellow-700">شارة 👑 VIP</span></label>
+      </div> 
+     </div> 
+    </div> 
+    <div class="mt-8 flex gap-3">
+     <button onclick="admin.addManualReview()" class="flex-1 bg-yellow-500 text-slate-900 font-black py-3 rounded-xl hover:bg-yellow-400">حفظ ونشر فوراً</button><button onclick="document.getElementById('manual-review-modal').classList.add('hidden')" class="px-6 bg-slate-100 text-slate-600 font-bold py-3 rounded-xl hover:bg-slate-200">إلغاء</button>
+    </div> 
+   </div> 
+  </div> 
   <div id="edit-q-modal" class="fixed inset-0 bg-slate-900/95 hidden z-[100] flex items-center justify-center p-4 backdrop-blur-sm"> 
    <div class="bg-white p-8 rounded-[2rem] w-full max-w-lg space-y-4 shadow-2xl"> 
     <h3 class="font-black text-xl text-center">تعديل السؤال</h3> 
@@ -473,13 +446,13 @@
   </div> 
   <script>
         const firebaseConfig = {
-  apiKey: "AIzaSyAFBdUCjde1MuTMmaZjC3J1xkPM-4f47Us",
-  authDomain: "egtazsh5.firebaseapp.com",
-  databaseURL: "https://egtazsh5-default-rtdb.firebaseio.com",
-  projectId: "egtazsh5",
-  storageBucket: "egtazsh5.firebasestorage.app",
-  messagingSenderId: "892841233558",
-  appId: "1:892841233558:web:859f41285d8626d4d686b7"
+  apiKey: "AIzaSyChwRmYWows0TterqjsMu0nZATrNOsW9Ho",
+  authDomain: "egtazsh6.firebaseapp.com",
+  databaseURL: "https://egtazsh6-default-rtdb.firebaseio.com",
+  projectId: "egtazsh6",
+  storageBucket: "egtazsh6.firebasestorage.app",
+  messagingSenderId: "99352544751",
+  appId: "1:99352544751:web:0c0dac04c1e60b48f9621a"
 };
 
         firebase.initializeApp(firebaseConfig);
