@@ -368,24 +368,19 @@
    <div class="bg-white w-full max-w-md rounded-[2rem] p-8 shadow-2xl modal-animate border-4 border-white"> 
     <h3 class="text-xl font-black text-slate-800 mb-6 text-center text-yellow-600"><i class="fas fa-star"></i> إضافة تقييم يدوي</h3> 
     <div class="space-y-4"> 
-     <div>
-      <label class="block text-sm font-bold mb-1">اسم الطالب:</label>
-      <input type="text" id="manual-rev-name" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500">
+     <div> <label class="block text-sm font-bold mb-1">اسم الطالب:</label> 
+      <input type="text" id="manual-rev-name" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"> 
      </div> 
-     <div>
-      <label class="block text-sm font-bold mb-1">نص التقييم (رأيه في المنصة):</label><textarea id="manual-rev-text" rows="3" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"></textarea>
+     <div> <label class="block text-sm font-bold mb-1">نص التقييم (رأيه في المنصة):</label><textarea id="manual-rev-text" rows="3" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"></textarea> 
      </div> 
      <div class="flex gap-4"> 
-      <div class="flex-1">
-       <label class="block text-sm font-bold mb-1">عدد النجوم:</label><select id="manual-rev-stars" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"><option value="5">⭐⭐⭐⭐⭐ (5)</option><option value="4">⭐⭐⭐⭐ (4)</option><option value="3">⭐⭐⭐ (3)</option></select>
+      <div class="flex-1"> <label class="block text-sm font-bold mb-1">عدد النجوم:</label><select id="manual-rev-stars" class="w-full border-2 p-3 rounded-xl font-bold outline-none focus:border-yellow-500"><option value="5">⭐⭐⭐⭐⭐ (5)</option><option value="4">⭐⭐⭐⭐ (4)</option><option value="3">⭐⭐⭐ (3)</option></select> 
       </div> 
-      <div class="flex-1 flex flex-col justify-end">
-       <label class="flex items-center gap-2 bg-yellow-50 p-3 rounded-xl border border-yellow-200 cursor-pointer"><input type="checkbox" id="manual-rev-vip" checked class="w-5 h-5 rounded text-yellow-500"><span class="font-bold text-sm text-yellow-700">شارة 👑 VIP</span></label>
+      <div class="flex-1 flex flex-col justify-end"> <label class="flex items-center gap-2 bg-yellow-50 p-3 rounded-xl border border-yellow-200 cursor-pointer"><input type="checkbox" id="manual-rev-vip" checked class="w-5 h-5 rounded text-yellow-500"><span class="font-bold text-sm text-yellow-700">شارة 👑 VIP</span></label> 
       </div> 
      </div> 
     </div> 
-    <div class="mt-8 flex gap-3">
-     <button onclick="admin.addManualReview()" class="flex-1 bg-yellow-500 text-slate-900 font-black py-3 rounded-xl hover:bg-yellow-400">حفظ ونشر فوراً</button><button onclick="document.getElementById('manual-review-modal').classList.add('hidden')" class="px-6 bg-slate-100 text-slate-600 font-bold py-3 rounded-xl hover:bg-slate-200">إلغاء</button>
+    <div class="mt-8 flex gap-3"> <button onclick="admin.addManualReview()" class="flex-1 bg-yellow-500 text-slate-900 font-black py-3 rounded-xl hover:bg-yellow-400">حفظ ونشر فوراً</button><button onclick="document.getElementById('manual-review-modal').classList.add('hidden')" class="px-6 bg-slate-100 text-slate-600 font-bold py-3 rounded-xl hover:bg-slate-200">إلغاء</button> 
     </div> 
    </div> 
   </div> 
@@ -446,13 +441,13 @@
   </div> 
   <script>
         const firebaseConfig = {
-  apiKey: "AIzaSyChwRmYWows0TterqjsMu0nZATrNOsW9Ho",
-  authDomain: "egtazsh6.firebaseapp.com",
-  databaseURL: "https://egtazsh6-default-rtdb.firebaseio.com",
-  projectId: "egtazsh6",
-  storageBucket: "egtazsh6.firebasestorage.app",
-  messagingSenderId: "99352544751",
-  appId: "1:99352544751:web:0c0dac04c1e60b48f9621a"
+  apiKey: "AIzaSyC7M4VIldMc0Wo0hySNkWW8ug0r88IwzFo",
+  authDomain: "egtazsh7.firebaseapp.com",
+  databaseURL: "https://egtazsh7-default-rtdb.firebaseio.com",
+  projectId: "egtazsh7",
+  storageBucket: "egtazsh7.firebasestorage.app",
+  messagingSenderId: "137693210578",
+  appId: "1:137693210578:web:8715bb9f7e3f320ac40a0b"
 };
 
         firebase.initializeApp(firebaseConfig);
